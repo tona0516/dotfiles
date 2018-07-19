@@ -125,6 +125,8 @@ call dein#add('tomasr/molokai')  " molokai
 call dein#add('vim-airline/vim-airline') " airline
 call dein#add('vim-airline/vim-airline-themes') " airline-theme
 call dein#add('tpope/vim-fugitive') " vimでGitコマンドを使う
+call dein#add('junegunn/fzf', { 'build': './install --all', 'merged': 0 })
+call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
 " ============================================================
 call dein#end()
 filetype plugin indent on
@@ -156,4 +158,9 @@ colorscheme molokai
 " airline
 "----------------------------------------
 let g:airline_theme = 'molokai'
+
+"----------------------------------------
+" fzf
+"----------------------------------------
+map <C-r> :History<CR>
 
