@@ -24,3 +24,4 @@ fi
 
 # relogin zsh
 exec $SHELL -l
+

@@ -15,26 +15,14 @@ echo "--------------------------------------------------------------------------
 
 DOTPATH=~/dotfiles
 
-DEIN_PATH=~/.vim/dein/repos/github.com/Shougo/dein.vim
-VUNDLE_PATH=~/.vim/bundle/Vundle.vim
-
 # check git installed
 if [ ! `which git` ];then
     echo "git is not installed. Please install it before \"make install\""
     exit 1
  fi
 
-# install dein
-if [ ! -e $DEIN_PATH ]; then
-    mkdir -p $DEIN_PATH
-    git clone https://github.com/Shougo/dein.vim.git $DEIN_PATH
-fi
-
-# install vundle
-if [ ! -e $VUNDLE_PATH ]; then
-    mkdir -p $VUNDLE_PATH
-    git clone https://github.com/VundleVim/Vundle.vim.git $VUNDLE_PATH
-fi
+# install vim-plug
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # create synbolic links of eash dotfile
 for f in .??*
@@ -46,5 +34,6 @@ do
 done
 
 # relogin zsh
+vim +PlugInstall +qall
 exec $SHELL -l
 

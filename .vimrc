@@ -99,43 +99,25 @@ if has('mouse')
 end
 
 " ------------------ dein setting -------------------------
-if &compatible
-    set nocompatible
-endif
-set runtimepath^=$HOME/.vim/dein/repos/github.com/Shougo/dein.vim
-
-" deinの設定
-call dein#begin(expand('$HOME/.vim/dein'))
-call dein#add('Shougo/dein.vim')
-
+call plug#begin('~/.vim/plugged')
 " ==================== plugins ===============================
-call dein#add('Shougo/unite.vim') " ファイル操作とか
-call dein#add('itchyny/lightline.vim') " 情報を見やすく
-call dein#add('nathanaelkane/vim-indent-guides') " インデントを色分け
-call dein#add('Townk/vim-autoclose') " カッコを自動で閉じる
-call dein#add('ujihisa/neco-look') " 英単語の補完
-call dein#add('scrooloose/nerdtree') " ツリー型のファイル表示
-call dein#add('jistr/vim-nerdtree-tabs') " タブ強化プラグイン
-call dein#add('mhinz/vim-grepper') " 高速grepするやつ
-call dein#add('scrooloose/syntastic') " swiftのSyntax check
-call dein#add('kballard/vim-swift') " swiftのSyntax check
-call dein#add('keith/swift.vim') " swiftのsyntax highlight
-call dein#add('ctrlpvim/ctrlp.vim') " ctrlp
-call dein#add('tomasr/molokai')  " molokai
-call dein#add('vim-airline/vim-airline') " airline
-call dein#add('vim-airline/vim-airline-themes') " airline-theme
-call dein#add('tpope/vim-fugitive') " vimでGitコマンドを使う
-call dein#add('junegunn/fzf', { 'build': './install --all', 'merged': 0 })
-call dein#add('junegunn/fzf.vim', { 'depends': 'fzf' })
+Plug 'Shougo/unite.vim' " ファイル操作とか
+Plug 'itchyny/lightline.vim' " 情報を見やすく
+Plug 'nathanaelkane/vim-indent-guides' " インデントを色分け
+Plug 'Townk/vim-autoclose' " カッコを自動で閉じる
+Plug 'ujihisa/neco-look' " 英単語の補完
+Plug 'scrooloose/nerdtree' " ツリー型のファイル表示
+Plug 'jistr/vim-nerdtree-tabs' " タブ強化プラグイン
+Plug 'mhinz/vim-grepper' " 高速grepするやつ
+Plug 'scrooloose/syntastic' " swiftのSyntax check
+Plug 'kballard/vim-swift' " swiftのSyntax check
+Plug 'keith/swift.vim' " swiftのsyntax highlight
+Plug 'ctrlpvim/ctrlp.vim' " ctrlp
+Plug 'tpope/vim-fugitive' " vimでGitコマンドを使う
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
 " ============================================================
-call dein#end()
-filetype plugin indent on
-
-" 未インストールのプラグインをインストール
-if dein#check_install()
-    call dein#install()
-endif
-
+call plug#end()
 "----------------------------------------
 " NERDTree
 "----------------------------------------
@@ -148,16 +130,6 @@ let NERDTreeShowHidden = 1
 " ctrlp
 "----------------------------------------
 let g:ctrlp_show_hidden = 1
-
-"----------------------------------------
-" molokai
-"----------------------------------------
-colorscheme molokai
-
-"----------------------------------------
-" airline
-"----------------------------------------
-let g:airline_theme = 'molokai'
 
 "----------------------------------------
 " fzf
