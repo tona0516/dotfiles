@@ -71,7 +71,8 @@ imap <C-h> <Left>
 imap <C-j> <Down>
 imap <C-k> <Up>
 imap <C-l> <Right>
-
+"jjでノーマルモードにして保存
+inoremap <silent> jj <ESC>
 "挿入モード時は縦棒のカーソルを表示する
 if has('vim_starting')
     " 挿入モード時に非点滅の縦棒タイプのカーソル
@@ -151,6 +152,7 @@ endif
 "----------------------------------------
 if s:is_plugged("fzf.vim")
     map <C-r> :History<CR>
+    map <C-o> :Files<CR>
 endif
 
 "----------------------------------------

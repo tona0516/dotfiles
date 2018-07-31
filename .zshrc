@@ -143,3 +143,4 @@ zplug "motemen/ghq", as:command, from:gh-r, rename-to:ghq
 # install
 zplug install
 zplug load
+
