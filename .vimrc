@@ -98,9 +98,10 @@ if has('mouse')
     endif
 end
 
-" ------------------ dein setting -------------------------
+"----------------------------------------
+" vim-plug
+"----------------------------------------
 call plug#begin('~/.vim/plugged')
-" ==================== plugins ===============================
 Plug 'Shougo/unite.vim' " ファイル操作とか
 Plug 'itchyny/lightline.vim' " 情報を見やすく
 Plug 'nathanaelkane/vim-indent-guides' " インデントを色分け
@@ -116,23 +117,45 @@ Plug 'ctrlpvim/ctrlp.vim' " ctrlp
 Plug 'tpope/vim-fugitive' " vimでGitコマンドを使う
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
-" ============================================================
+Plug 'w0ng/vim-hybrid'
 call plug#end()
+
+" インストール判定関数
+function s:is_plugged(name)
+    if exists('g:plugs') && has_key(g:plugs, a:name) && isdirectory(g:plugs[a:name].dir)
+        return 1
+    else
+        return 0
+    endif
+endfunction
+
 "----------------------------------------
 " NERDTree
 "----------------------------------------
-" Ctrl+eで表示切り替え
-map <C-e> :NERDTreeTabsToggle<CR>
-" 隠しファイルをデフォルトで表示させる
-let NERDTreeShowHidden = 1
+if s:is_plugged("nerdtree")
+    " Ctrl+eで表示切り替え
+    map <C-e> :NERDTreeTabsToggle<CR>
+    " 隠しファイルをデフォルトで表示させる
+    let NERDTreeShowHidden = 1
+endif
 
 "----------------------------------------
 " ctrlp
 "----------------------------------------
-let g:ctrlp_show_hidden = 1
+if s:is_plugged("ctrlp.vim")
+    let g:ctrlp_show_hidden = 1
+endif
 
 "----------------------------------------
 " fzf
 "----------------------------------------
-map <C-r> :History<CR>
+if s:is_plugged("fzf.vim")
+    map <C-r> :History<CR>
+endif
 
+"----------------------------------------
+" molokai
+"----------------------------------------
+if s:is_plugged("vim-hybrid")
+    colorscheme hybrid
+endif
