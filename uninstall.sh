@@ -3,24 +3,15 @@
 # remove installed each alias
 for f in .??*
 do
-    if [ -f $HOME/$f ]; then
-        rm $HOME/$f
-    fi
+    [ -f $HOME/$f ] && rm $HOME/$f && echo "removed "$HOME/$f
 done
 
 # remove installed each directory
-if [ -f $HOME/.zcompdump ]; then
-    rm $HOME/.zcompdump
-fi
-if [ -d $HOME/.zplug/ ]; then
-    rm -rf $HOME/.zplug/
-fi
-if [ -d $HOME/.enhancd/ ]; then
-    rm -rf ~/.enhancd/
-fi
-if [ -d $HOME/.vim/ ]; then
-    rm -rf $HOME/.vim/
-fi
+REMOVE_FILES=(.zcompdump .zplug/ .enhancd/ .vim/)
+for f in ${REMOVE_FILES[@]}
+do
+    [ -e $HOME/$f ] && rm -rf $HOME/$f && echo "removed "$HOME/$f
+done
 
 # relogin zsh
 exec $SHELL -l

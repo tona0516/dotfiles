@@ -14,6 +14,7 @@ echo -n "
 echo "--------------------------------------------------------------------------------"
 
 DOTPATH=~/dotfiles
+EXCLUDED_DOTFILES=(.git .gitignore)
 
 # check git installed
 if [ ! `which git` ];then
@@ -27,10 +28,12 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.c
 # create synbolic links of eash dotfile
 for f in .??*
 do
-    [ "$f" = ".git" ] && continue
-    [ "$f" = ".gitignore" ] && continue
-
-    ln -snfv "$DOTPATH/$f" "$HOME/$f"
+    should_create_link=true
+    for excluded in ${EXCLUDED_DOTFILES[@]}
+    do
+        [ "$f" = "$excluded" ] && should_create_link=false && break
+    done
+    [ $should_create_link = true ] && ln -snfv "$DOTPATH/$f" "$HOME/$f"
 done
 
 # relogin zsh
