@@ -119,6 +119,7 @@ Plug 'tpope/vim-fugitive' " vimでGitコマンドを使う
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'w0ng/vim-hybrid'
+Plug 'violetyk/iikanji-markdown.vim'
 call plug#end()
 
 " インストール判定関数
