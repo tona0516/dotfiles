@@ -119,6 +119,8 @@ Plug 'tpope/vim-fugitive' " vimでGitコマンドを使う
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'w0ng/vim-hybrid'
+Plug 'violetyk/iikanji-markdown.vim'
+Plug 'previm/previm'
 call plug#end()
 
 " インストール判定関数
@@ -161,3 +163,8 @@ endif
 if s:is_plugged("vim-hybrid")
     colorscheme hybrid
 endif
+
+"----------------------------------------
+" Previm
+"----------------------------------------
+let g:previm_open_cmd = 'open -s Google\ Chrome'
