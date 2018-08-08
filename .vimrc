@@ -158,9 +158,9 @@ if s:is_plugged("fzf.vim")
 endif
 
 "----------------------------------------
-" molokai
+" vim-hybrid
 "----------------------------------------
-if s:is_plugged("vim-hybrid")
+if s:is_plugged("vim-hybrid") && has("mac")
     colorscheme hybrid
 endif
 
