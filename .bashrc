@@ -22,7 +22,6 @@ else
     alias ls='ls --color=auto'
 fi
 alias h='hostname'
-alias git='noglob git'
 alias g='git'
 alias gs='git status'
 alias gb='git branch'
