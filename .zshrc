@@ -61,7 +61,8 @@ setopt share_history # 履歴を共有
 setopt hist_ignore_space # スペースから始まるコマンド行はヒストリに残さない
 setopt hist_reduce_blanks # ヒストリに保存するときに余分なスペースを削除する
 setopt extended_history # 履歴ファイルにzsh の開始・終了時刻を記録する
-setopt hist_ignore_all_dups # # 重複するコマンドは古い法を削除する
+setopt hist_ignore_all_dups # 重複するコマンドは古い方を削除する
+setopt interactivecomments # コメントを使えるようにする
 
 # ヒストリーの設定
 export LANG=ja_JP.UTF-8
@@ -121,6 +122,14 @@ function select-history() {
 }
 zle -N select-history
 bindkey '^r' select-history
+
+# snippet search by fzf
+function select-snippets() {
+    BUFFER=$(cat ~/dotfiles/document/command_snippets | fzf --no-sort +m --query "$LBUFFER" --prompt="Snippet > ")
+    CURSOR=$#BUFFER
+}
+zle -N select-snippets
+bindkey '^s' select-snippets
 
 # install enhancd
 zplug "b4b4r07/enhancd", use:init.sh
