@@ -119,6 +119,7 @@ Plug 'tpope/vim-fugitive' " vimでGitコマンドを使う
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'w0ng/vim-hybrid'
+Plug 'tomasr/molokai'
 Plug 'violetyk/iikanji-markdown.vim'
 Plug 'previm/previm'
 call plug#end()
@@ -160,9 +161,11 @@ endif
 "----------------------------------------
 " vim-hybrid
 "----------------------------------------
-if s:is_plugged("vim-hybrid")
+if s:is_plugged("vim-hybrid") && has('mac')
     set background=dark
     colorscheme hybrid
+elseif s:is_plugged("vim-hybrid")
+    colorscheme molokai
 endif
 
 "----------------------------------------
