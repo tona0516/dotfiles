@@ -160,7 +160,8 @@ endif
 "----------------------------------------
 " vim-hybrid
 "----------------------------------------
-if s:is_plugged("vim-hybrid") && has("mac")
+if s:is_plugged("vim-hybrid")
+    set background=dark
     colorscheme hybrid
 endif
 
