@@ -63,6 +63,7 @@ setopt hist_reduce_blanks # ヒストリに保存するときに余分なスペ�
 setopt extended_history # 履歴ファイルにzsh の開始・終了時刻を記録する
 setopt hist_ignore_all_dups # 重複するコマンドは古い方を削除する
 setopt interactivecomments # コメントを使えるようにする
+setopt noflowcontrol # フロー制御を無効にする
 
 # ヒストリーの設定
 export LANG=ja_JP.UTF-8
