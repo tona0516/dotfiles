@@ -139,7 +139,7 @@ if zplug check "b4b4r07/enhancd"; then
     ENHANCD_DISABLE_DOT=1
     ENHANCD_DISABLE_HYPHEN=1
     ENHANCD_HOOK_AFTER_CD=ls
-    ENHANCD_FILTER="fzf --height 50% --ansi"
+    ENHANCD_FILTER=fzf
 fi
 
 # install syntax-highlighting
