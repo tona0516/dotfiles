@@ -164,7 +164,7 @@ endif
 if s:is_plugged("vim-hybrid") && has('mac')
     set background=dark
     colorscheme hybrid
-elseif s:is_plugged("vim-hybrid")
+elseif s:is_plugged("molokai")
     colorscheme molokai
 endif
 
