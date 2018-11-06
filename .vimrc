@@ -71,6 +71,12 @@ imap <C-h> <Left>
 imap <C-j> <Down>
 imap <C-k> <Up>
 imap <C-l> <Right>
+" 挿入モード時にemacのようにctrl+aで先頭、ctrl+eで末尾に移動する
+nmap <C-a> <Home>
+nmap <C-e> <End>
+imap <C-a> <Home>
+imap <C-e> <End>
+
 "jjでノーマルモードにして保存
 inoremap <silent> jj <ESC>
 "挿入モード時は縦棒のカーソルを表示する
@@ -138,7 +144,7 @@ endfunction
 "----------------------------------------
 if s:is_plugged("nerdtree")
     " Ctrl+eで表示切り替え
-    map <C-e> :NERDTreeTabsToggle<CR>
+    map <C-n> :NERDTreeTabsToggle<CR>
     " 隠しファイルをデフォルトで表示させる
     let NERDTreeShowHidden = 1
 endif

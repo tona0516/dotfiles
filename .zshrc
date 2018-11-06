@@ -132,7 +132,8 @@ function select-snippets() {
 zle -N select-snippets
 bindkey '^s' select-snippets
 
-# install enhancd
+# install plugins
+
 zplug "b4b4r07/enhancd", use:init.sh
 if zplug check "b4b4r07/enhancd"; then
     ENHANCD_DISABLE_HOME=0
@@ -142,13 +143,9 @@ if zplug check "b4b4r07/enhancd"; then
     ENHANCD_FILTER=fzf
 fi
 
-# install syntax-highlighting
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
-
-# install zsh-autosuggestions
+zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-autosuggestions", use:zsh-autosuggestions.zsh
-
-# install ghq
 zplug "motemen/ghq", as:command, from:gh-r, rename-to:ghq
 
 # install
