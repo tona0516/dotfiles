@@ -144,8 +144,8 @@ if zplug check "b4b4r07/enhancd"; then
 fi
 
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
-zplug "zsh-users/zsh-completions"
-zplug "zsh-users/zsh-autosuggestions", use:zsh-autosuggestions.zsh
+zplug "zsh-users/zsh-completions", lazy:true
+zplug "zsh-users/zsh-autosuggestions", use:zsh-autosuggestions.zsh, lazy:true
 zplug "motemen/ghq", as:command, from:gh-r, rename-to:ghq
 
 # install
