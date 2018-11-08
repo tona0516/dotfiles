@@ -145,7 +145,7 @@ fi
 
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "zsh-users/zsh-completions", lazy:true
-zplug "zsh-users/zsh-autosuggestions", use:zsh-autosuggestions.zsh, lazy:true
+zplug "zsh-users/zsh-autosuggestions", use:zsh-autosuggestions.zsh
 zplug "motemen/ghq", as:command, from:gh-r, rename-to:ghq
 
 # install
