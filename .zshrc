@@ -40,6 +40,7 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
+alias fzf='fzf --height 50% --ansi'
 
 if [ `which atom &> /dev/null` ]; then
     alias memo='atom ~/Documents/workaround.md'
