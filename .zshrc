@@ -118,14 +118,6 @@ else
     zplug "junegunn/fzf-bin", as:command, from:gh-r, rename-to:fzf
 fi
 
-# history search by fzf
-function select-history() {
-    BUFFER=$(history -n -r 1 | fzf --no-sort +m --query "$LBUFFER" --prompt="History > ")
-    CURSOR=$#BUFFER
-}
-zle -N select-history
-bindkey '^r' select-history
-
 # snippet search by fzf
 function select-snippets() {
     BUFFER=$(cat ~/dotfiles/document/command_snippets | fzf --no-sort +m --query "$LBUFFER" --prompt="Snippet > ")
@@ -135,7 +127,6 @@ zle -N select-snippets
 bindkey '^s' select-snippets
 
 # install plugins
-
 zplug "b4b4r07/enhancd", use:init.sh
 if zplug check "b4b4r07/enhancd"; then
     ENHANCD_DISABLE_HOME=0
@@ -149,6 +140,15 @@ zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "zsh-users/zsh-completions", lazy:true
 zplug "zsh-users/zsh-autosuggestions", use:zsh-autosuggestions.zsh
 zplug "motemen/ghq", as:command, from:gh-r, rename-to:ghq
+
+zplug "mollifier/anyframe"
+if zplug check "mollifier/anyframe"; then
+    zstyle ":anyframe:selector:" use fzf
+    zstyle ":anyframe:selector:fzf:" command 'fzf --height 50% --ansi'
+    bindkey '^r' anyframe-widget-put-history
+    alias gco=anyframe-widget-checkout-git-branch
+    bindkey '^f' anyframe-widget-insert-filename
+fi
 
 # install
 zplug install
