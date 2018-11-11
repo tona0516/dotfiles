@@ -73,13 +73,14 @@ HISTSIZE=1000000
 SAVEHIST=1000000
 
 # プロンプトの表示設定
-autoload -Uz vcs_info
-zstyle ':vcs_info:*' formats '%b'
-zstyle ':vcs_info:*' actionformats '%b|%a'
+function git_branch() {
+    echo -n "$(git name-rev --name-only HEAD 2> /dev/null)"
+}
+setopt prompt_subst
 function precmd() {
     psvar=()
-    LANG=en_US.UTF-8 vcs_info
-    [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
+    branch=`git_branch`
+    [[ -n "$branch" ]] && psvar[1]="$branch"
 }
 RPROMPT=""
 PROMPT="%F{214}%n%f %F{white}in%f %F{magenta}%m%f %F{white}at%f %F{cyan}%~%f %1(v|%F{white}on%f %F{red}%1v%f|) %F{green}[%T]%f
