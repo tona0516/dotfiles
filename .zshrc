@@ -40,7 +40,7 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
-alias fzf='fzf --height 50% --ansi'
+alias fzf='fzf --reverse --height 50% --ansi'
 
 if [ `which atom &> /dev/null` ]; then
     alias memo='atom ~/Documents/workaround.md'
@@ -144,7 +144,7 @@ zplug "motemen/ghq", as:command, from:gh-r, rename-to:ghq
 zplug "mollifier/anyframe"
 if zplug check "mollifier/anyframe"; then
     zstyle ":anyframe:selector:" use fzf
-    zstyle ":anyframe:selector:fzf:" command 'fzf --height 50% --ansi'
+    zstyle ":anyframe:selector:fzf:" command 'fzf --reverse --height 50% --ansi'
     bindkey '^r' anyframe-widget-put-history
     alias gco=anyframe-widget-checkout-git-branch
     bindkey '^f' anyframe-widget-insert-filename
