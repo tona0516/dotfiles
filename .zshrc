@@ -32,8 +32,6 @@ alias gl='git log --oneline'
 alias gr='git reset'
 alias gd='git diff'
 alias gll='git log --oneline | fzf | cut -d" " -f1 | xargs git show'
-alias gcln='git clean -xdf'
-alias vf='fzf | xargs -o vim'
 alias ssh='ssh -A'
 alias rezsh='source ~/.zshrc'
 alias ..='cd ..'
@@ -132,7 +130,12 @@ fi
 
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "zsh-users/zsh-completions", lazy:true
+
 zplug "zsh-users/zsh-autosuggestions", use:zsh-autosuggestions.zsh
+if zplug check "zsh-users/zsh-autosuggestions"; then
+    ZSH_AUTOSUGGEST_USE_ASYNC=true
+fi
+
 zplug "motemen/ghq", as:command, from:gh-r, rename-to:ghq
 
 zplug "mollifier/anyframe"
