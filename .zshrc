@@ -72,19 +72,9 @@ HISTSIZE=1000000
 SAVEHIST=1000000
 
 # プロンプトの表示設定
-function git_branch() {
-    echo -n "$(git branch | grep "*" | awk '{print $NF}' | tr -d "()" 2> /dev/null)"
-}
-
-setopt prompt_subst
-function precmd() {
-    psvar=()
-    branch=`git_branch`
-    [[ -n "$branch" ]] && psvar[1]="$branch"
-}
-RPROMPT=""
-PROMPT="%F{214}%n%f %F{white}in%f %F{magenta}%m%f %F{white}at%f %F{cyan}%~%f %1(v|%F{white}on%f %F{red}%1v%f|) %F{green}[%T]%f
-%B%F{yellow}〉%f%b%{${reset_color}%}"
+RPROMPT="%F{green}[%T]%f"
+PROMPT="%F{214}%n%f %F{white}in%f %F{magenta}%M%f %F{white}at%f %F{cyan}%~%f
+%B%F{yellow}> %f%b%{${reset_color}%}"
 
 # 補完の有効化
 autoload -Uz compinit && compinit -u
