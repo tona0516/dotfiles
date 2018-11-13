@@ -73,8 +73,9 @@ SAVEHIST=1000000
 
 # プロンプトの表示設定
 function git_branch() {
-    echo -n "$(git name-rev --name-only HEAD 2> /dev/null)"
+    echo -n "$(git branch | grep "*" | awk '{print $NF}' | tr -d "()" 2> /dev/null)"
 }
+
 setopt prompt_subst
 function precmd() {
     psvar=()
