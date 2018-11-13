@@ -120,14 +120,11 @@ Plug 'mhinz/vim-grepper' " 高速grepするやつ
 Plug 'scrooloose/syntastic' " swiftのSyntax check
 Plug 'kballard/vim-swift' " swiftのSyntax check
 Plug 'keith/swift.vim' " swiftのsyntax highlight
-Plug 'ctrlpvim/ctrlp.vim' " ctrlp
 Plug 'tpope/vim-fugitive' " vimでGitコマンドを使う
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'w0ng/vim-hybrid'
 Plug 'tomasr/molokai'
-Plug 'violetyk/iikanji-markdown.vim'
-Plug 'previm/previm'
 call plug#end()
 
 " インストール判定関数
@@ -174,7 +171,3 @@ elseif s:is_plugged("molokai")
     colorscheme molokai
 endif
 
-"----------------------------------------
-" Previm
-"----------------------------------------
-let g:previm_open_cmd = 'open -s Google\ Chrome'
