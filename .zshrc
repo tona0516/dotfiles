@@ -25,7 +25,7 @@ alias h='hostname'
 alias git='noglob git'
 alias g='git'
 alias gs='git status'
-alias gb='git branch'
+alias gb=show-branch-tags
 alias gc='git checkout'
 alias gcf='git branch | fzf | xargs git checkout'
 alias gl='git log --oneline'
@@ -115,6 +115,10 @@ function select-snippets() {
 }
 zle -N select-snippets
 bindkey '^s' select-snippets
+
+function show-branch-tags() {
+    git branch | grep "*" | awk '{print $NF}' | tr -d "()"
+}
 
 # install plugins
 zplug "b4b4r07/enhancd", use:init.sh
