@@ -121,6 +121,16 @@ function select-snippets() {
 zle -N select-snippets
 bindkey '^s' select-snippets
 
+# grepの検索結果をvimで開く (隠しファイルは除外)
+function open-vim-by-grep-result() {
+    grep -rn --exclude-dir=kernel $1 * | fzf | tr ':' ' ' | awk '{print $1,$2}' | xargs sh -c 'vim -c $1 $0 < /dev/tty'
+}
+
+# findの検索結果をvimで開く
+function open-vim-by-find-result() {
+    find . -type f -iname "*$1*" | fzf | xargs -o vim
+}
+
 # install plugins
 zplug "b4b4r07/enhancd", use:init.sh
 if zplug check "b4b4r07/enhancd"; then
