@@ -30,6 +30,7 @@ alias gcf='git branch | fzf | xargs git checkout'
 alias gl='git log --oneline'
 alias gr='git reset'
 alias gd='git diff'
+alias gdc='git diff --cached'
 alias gll='git log --oneline | fzf | cut -d" " -f1 | xargs git show'
 alias ssh='ssh -A'
 alias rezsh='source ~/.zshrc'
@@ -111,7 +112,7 @@ function select-snippets() {
     CURSOR=$#BUFFER
 }
 zle -N select-snippets
-bindkey '^s' select-snippets
+bindkey '^@' select-snippets
 
 function show-branch-tags() {
     git branch
