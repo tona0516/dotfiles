@@ -1,2 +1,4 @@
 ssh-keygen -t rsa -C <key-name> # キーペア生成
 git clean -xdf # 作業ディレクトリから追跡対象外のファイルを削除
+git checkout -- . # 変更の取り消し
+
