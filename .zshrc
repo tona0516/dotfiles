@@ -24,14 +24,13 @@ fi
 alias h='hostname'
 alias git='noglob git'
 alias g='git'
+alias ga='git add'
 alias gs='git status'
-alias gc='git checkout'
-alias gcf='git branch | fzf | xargs git checkout'
-alias gl='git log --oneline'
+alias gl="git log --pretty='format:%C(yellow)%h %C(cyan)%an %C(green)%cd %C(reset)%s %C(red)%d' --date=short"
 alias gr='git reset'
 alias gd='git diff'
-alias gdc='git diff --cached'
-alias gll='git log --oneline | fzf | cut -d" " -f1 | xargs git show'
+alias gdd='git diff --cached'
+alias gll="git log --pretty='format:%h %an %cd %s' --date=short | fzf | xargs git show"
 alias ssh='ssh -A'
 alias rezsh='source ~/.zshrc'
 alias ..='cd ..'
@@ -70,8 +69,16 @@ HISTSIZE=1000000
 SAVEHIST=1000000
 
 # プロンプトの表示設定
-RPROMPT="%F{green}[%T]%f"
-PROMPT="%F{214}%n%f %F{white}in%f %F{magenta}%M%f %F{white}at%f %F{cyan}%~%f
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' formats '%b'
+zstyle ':vcs_info:*' actionformats '%b|%a'
+function precmd() {
+    psvar=()
+    LANG=en_US.UTF-8 vcs_info
+    [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
+}
+RPROMPT=""
+PROMPT="%F{214}%n%f %F{white}in%f %F{magenta}%M%f %F{white}at%f %F{cyan}%~%f %1(v|%F{white}on%f %F{red}%1v%f|) %F{green}[%T]%f
 %B%F{yellow}> %f%b%{${reset_color}%}"
 
 # 補完の有効化
@@ -114,12 +121,15 @@ function select-snippets() {
 zle -N select-snippets
 bindkey '^@' select-snippets
 
-function show-branch-tags() {
-    git branch
-    zle accept-line
+# grepの検索結果をvimで開く (隠しファイルは除外)
+function open-vim-by-grep-result() {
+    grep -rn --exclude-dir=kernel $1 * | fzf | tr ':' ' ' | awk '{print $1,$2}' | xargs sh -c 'vim -c $1 $0 < /dev/tty'
 }
-zle -N show-branch-tags
-bindkey '^b' show-branch-tags
+
+# findの検索結果をvimで開く
+function open-vim-by-find-result() {
+    find . -type f -iname "*$1*" | fzf | xargs -o vim
+}
 
 # install plugins
 zplug "b4b4r07/enhancd", use:init.sh
@@ -145,7 +155,7 @@ zplug "mollifier/anyframe"
 if zplug check "mollifier/anyframe"; then
     zstyle ":anyframe:selector:" use fzf
     bindkey '^r' anyframe-widget-put-history
-    alias gco=anyframe-widget-checkout-git-branch
+    alias gc=anyframe-widget-checkout-git-branch
     bindkey '^f' anyframe-widget-insert-filename
 fi
 
