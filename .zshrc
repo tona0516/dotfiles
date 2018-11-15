@@ -30,7 +30,7 @@ alias gl="git log --pretty='format:%C(yellow)%h %C(cyan)%an %C(green)%cd %C(rese
 alias gr='git reset'
 alias gd='git diff'
 alias gdd='git diff --cached'
-alias gll="git log --pretty='format:%h %an %cd %s' --date=short | fzf | xargs git show"
+alias gll="git log --pretty='format:%h %an %cd %s' --date=short | fzf | cut -d' ' -f1 | xargs git show"
 alias ssh='ssh -A'
 alias rezsh='source ~/.zshrc'
 alias ..='cd ..'
