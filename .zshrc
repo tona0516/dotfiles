@@ -62,6 +62,11 @@ setopt hist_ignore_all_dups # 重複するコマンドは古い方を削除す�
 setopt interactivecomments # コメントを使えるようにする
 setopt noflowcontrol # フロー制御を無効にする
 
+# ビープ音を無効にする
+setopt no_beep
+setopt no_hist_beep
+setopt no_list_beep
+
 # ヒストリーの設定
 export LANG=ja_JP.UTF-8
 HISTFILE=~/.zsh_history
