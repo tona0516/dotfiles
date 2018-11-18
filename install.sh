@@ -16,16 +16,22 @@ echo "--------------------------------------------------------------------------
 DOTPATH=~/dotfiles
 EXCLUDED_DOTFILES=(.git .gitignore)
 
-# check git installed
-if [ ! `which git` ];then
-    echo "git is not installed. Please install it before \"make install\""
-    exit 1
- fi
+function check_installed() {
+    base_error_description=" is not installed. Please install it before \"make install\"."
+    if [ ! `which $1` ]; then
+        echo $1$base_error_description
+        exit 1
+    fi
+}
+
+# check if the following commands are installed
+check_installed git
+check_installed tmux
 
 # install vim-plug
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-# create synbolic links of eash dotfile
+# create synbolic links of each dotfile
 for f in .??*
 do
     should_create_link=true

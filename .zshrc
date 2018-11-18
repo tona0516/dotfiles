@@ -124,15 +124,15 @@ function select-snippets() {
     CURSOR=$#BUFFER
 }
 zle -N select-snippets
-bindkey '^@' select-snippets
+bindkey '^s' select-snippets
 
 # grepの検索結果をvimで開く (隠しファイルは除外)
-function open-vim-by-grep-result() {
+function grep-vim() {
     grep -rn --exclude-dir=kernel $1 * | fzf | tr ':' ' ' | awk '{print $1,$2}' | xargs sh -c 'vim -c $1 $0 < /dev/tty'
 }
 
 # findの検索結果をvimで開く
-function open-vim-by-find-result() {
+function find-vim() {
     find . -type f -iname "*$1*" | fzf | xargs -o vim
 }
 
@@ -163,6 +163,8 @@ if zplug check "mollifier/anyframe"; then
     alias gc=anyframe-widget-checkout-git-branch
     bindkey '^f' anyframe-widget-insert-filename
 fi
+
+zplug "chrissicool/zsh-256color"
 
 # install
 zplug install
