@@ -120,7 +120,7 @@ fi
 
 # snippet search by fzf
 function select-snippets() {
-    BUFFER=$(cat ~/dotfiles/document/command_snippets | fzf --no-sort +m --query "$LBUFFER" --prompt="Snippet > ")
+    BUFFER=$(cat ~/dotfiles/document/command_snippets | grep -v '^\s*#' | grep -v '^\s*$' | fzf +m --query "$LBUFFER" --prompt="Snippet > ")
     CURSOR=$#BUFFER
 }
 zle -N select-snippets
