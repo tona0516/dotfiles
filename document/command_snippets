@@ -3,4 +3,3 @@ git clean -xdf # 作業ディレクトリから追跡対象外のファイルを
 git checkout -- . # 変更の取り消し
 git commit -m ""
 carthage update --platform iOS # Cartfileからframeworkを更新する
-
