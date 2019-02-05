@@ -76,6 +76,10 @@ nmap <C-a> <Home>
 nmap <C-e> <End>
 imap <C-a> <Home>
 imap <C-e> <End>
+" Tabでタブ移動
+nmap <Tab> :tabp<CR>
+nmap <S-Tab> :tabn<CR>
+nmap <C-t> :tabnew<CR>
 
 "jjでノーマルモードにして保存
 inoremap <silent> jj <ESC>
