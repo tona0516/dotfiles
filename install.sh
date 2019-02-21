@@ -44,5 +44,4 @@ done
 
 # relogin zsh
 vim +PlugInstall +qall
-exec $SHELL -l
-
+echo "!!!!! type \"rezsh\" !!!!!"

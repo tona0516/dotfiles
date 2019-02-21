@@ -164,7 +164,6 @@ endif
 " fzf
 "----------------------------------------
 if s:is_plugged("fzf.vim")
-    map <C-r> :History<CR>
     map <C-o> :Files<CR>
 endif
 
