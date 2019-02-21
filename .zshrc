@@ -37,6 +37,7 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
+alias sudo-e='sudo -E'
 
 if [ `which atom &> /dev/null` ]; then
     alias memo='atom ~/Documents/workaround.md'
