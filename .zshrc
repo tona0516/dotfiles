@@ -133,9 +133,22 @@ function grep-vim() {
 }
 
 # findの検索結果をvimで開く
-function find-vim() {
-    find . -type f -iname "*$1*" | fzf | xargs -o vim
+vim-fzf-find() {
+    local FILE=$(find ./ -path '*/\.*' -name .git -prune -o -type f -print 2> /dev/null | fzf +m)
+    if [ -n "$FILE" ]; then
+        ${EDITOR:-vim} $FILE
+    fi
 }
+alias fv=vim-fzf-find
+
+# findの検索結果のディレクトリに移動　
+function cd-fzf-find() {
+    local DIR=$(find ./ -path '*/\.*' -name .git -prune -o -type d -print 2> /dev/null | fzf +m)
+    if [ -n "$DIR" ]; then
+        cd $DIR
+    fi
+}
+alias fd=cd-fzf-find
 
 # install plugins
 zplug "b4b4r07/enhancd", use:init.sh
