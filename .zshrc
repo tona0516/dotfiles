@@ -160,7 +160,7 @@ if zplug check "b4b4r07/enhancd"; then
     ENHANCD_FILTER=fzf
 fi
 
-zplug "zsh-users/zsh-syntax-highlighting", defer:2
+zplug "zdharma/fast-syntax-highlighting", defer:2
 zplug "zsh-users/zsh-completions", lazy:true
 
 zplug "zsh-users/zsh-autosuggestions", use:zsh-autosuggestions.zsh
