@@ -101,22 +101,19 @@ zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 # 大文字小文字を区別しない
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
+
 #----------------------------------------
-# ZPLUG
+# ZPLUGIN
 #----------------------------------------
-# install zplug
-if [ ! -e ~/.zplug ]; then
-    export ZPLUG_HOME=~/.zplug
-    git clone https://github.com/zplug/zplug $ZPLUG_HOME
-fi
-source ~/.zplug/init.zsh
-ZPLUG_PROTOCOL=HTTPS
+source "$HOME/.zplugin/bin/zplugin.zsh"
+autoload -Uz _zplugin
+(( ${+_comps} )) && _comps[zplugin]=_zplugin
 
 # install fzf
 if is_mac; then
-    zplug "junegunn/fzf-bin", as:command, from:gh-r, rename-to:fzf, use:"*darwin*amd64*"
+    zplugin ice from"gh-r" as"program" bpick"*darwin*amd64*"; zplugin light junegunn/fzf-bin
 else
-    zplug "junegunn/fzf-bin", as:command, from:gh-r, rename-to:fzf
+    zplugin ice from"gh-r" as"program"; zplugin light junegunn/fzf-bin
 fi
 
 # snippet search by fzf
@@ -151,37 +148,25 @@ function cd-fzf-find() {
 alias fd=cd-fzf-find
 
 # install plugins
-zplug "b4b4r07/enhancd", use:init.sh
-if zplug check "b4b4r07/enhancd"; then
-    ENHANCD_DISABLE_HOME=0
-    ENHANCD_DISABLE_DOT=1
-    ENHANCD_DISABLE_HYPHEN=1
-    ENHANCD_HOOK_AFTER_CD=ls
-    ENHANCD_FILTER=fzf
-fi
+zplugin light b4b4r07/enhancd
+ENHANCD_DISABLE_HOME=0
+ENHANCD_DISABLE_DOT=1
+ENHANCD_DISABLE_HYPHEN=1
+ENHANCD_HOOK_AFTER_CD=ls
+ENHANCD_FILTER=fzf
 
-zplug "zdharma/fast-syntax-highlighting", defer:2
-zplug "zsh-users/zsh-completions", lazy:true
+zplugin ice wait'!0'; zplugin light zdharma/fast-syntax-highlighting
+zplugin ice wait'!0'; zplugin light zsh-users/zsh-completions
+zplugin light zsh-users/zsh-autosuggestions
+ZSH_AUTOSUGGEST_USE_ASYNC=true
 
-zplug "zsh-users/zsh-autosuggestions", use:zsh-autosuggestions.zsh
-if zplug check "zsh-users/zsh-autosuggestions"; then
-    ZSH_AUTOSUGGEST_USE_ASYNC=true
-fi
+zplugin ice from"gh-r" as"program"; zplugin light motemen/ghq
+zplugin light mollifier/anyframe
+zstyle ":anyframe:selector:" use fzf
+zstyle ":anyframe:selector:fzf:" command 'fzf --no-sort'
+bindkey '^r' anyframe-widget-put-history
+alias gc=anyframe-widget-checkout-git-branch
+bindkey '^f' anyframe-widget-insert-filename
 
-zplug "motemen/ghq", as:command, from:gh-r, rename-to:ghq
-
-zplug "mollifier/anyframe"
-if zplug check "mollifier/anyframe"; then
-    zstyle ":anyframe:selector:" use fzf
-    zstyle ":anyframe:selector:fzf:" command 'fzf --no-sort'
-    bindkey '^r' anyframe-widget-put-history
-    alias gc=anyframe-widget-checkout-git-branch
-    bindkey '^f' anyframe-widget-insert-filename
-fi
-
-zplug "chrissicool/zsh-256color"
-
-# install
-zplug install
-zplug load
+zplugin light chrissicool/zsh-256color
 
