@@ -26,7 +26,6 @@ function check_installed() {
 
 # check if the following commands are installed
 check_installed git
-# check_installed tmux
 
 # install vim-plug
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -42,6 +41,8 @@ do
     [ $should_create_link = true ] && ln -snfv "$DOTPATH/$f" "$HOME/$f"
 done
 
-# relogin zsh
+# install vim plugins
 vim +PlugInstall +qall
-echo "!!!!! type \"rezsh\" !!!!!"
+
+# relogin zsh
+echo ">>>>> type \"source ~/.zshrc\" <<<<<"
