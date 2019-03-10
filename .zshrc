@@ -39,11 +39,24 @@ alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias sudo-vim='sudo -E vim'
 
-if [ `which atom &> /dev/null` ]; then
-    alias memo='atom ~/Documents/workaround.md'
-else
-    alias memo='vim ~/Documents/workaround.md'
-fi
+function memo() {
+    today_formatted=`date '+%Y_%m_%d'`
+    memo_filename=$today_formatted'.md'
+    memo_dir=$HOME'/Documents/daily_report/'
+    memo_path=$memo_dir$memo_filename
+
+    if [ ! -e $memo_dir ]; then
+        mkdir -p $memo_dir
+    fi
+
+    if [ -f $memo_path ]; then
+        code $memo_path
+    else
+        echo '# '$today_formatted > $memo_path
+        code $memo_path
+    fi
+}
+
 alias cs='vim ~/dotfiles/document/cheatsheet.md'
 
 #----------------------------------------
