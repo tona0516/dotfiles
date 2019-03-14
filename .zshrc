@@ -25,6 +25,7 @@ alias h='hostname'
 alias git='noglob git'
 alias g='git'
 alias ga='git add'
+alias gc='git commit'
 alias gs='git status'
 alias gl="git log --pretty='format:%C(yellow)%h %C(cyan)%an %C(green)%cd %C(reset)%s %C(red)%d' --date=short"
 alias gr='git reset'
@@ -175,7 +176,7 @@ if zplug check "mollifier/anyframe"; then
     zstyle ":anyframe:selector:" use fzf
     zstyle ":anyframe:selector:fzf:" command 'fzf --no-sort'
     bindkey '^r' anyframe-widget-put-history
-    alias gc=anyframe-widget-checkout-git-branch
+    alias gco=anyframe-widget-checkout-git-branch
     bindkey '^f' anyframe-widget-insert-filename
 fi
 
@@ -184,4 +185,3 @@ zplug "chrissicool/zsh-256color"
 # install
 zplug install
 zplug load
-
