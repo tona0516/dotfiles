@@ -98,7 +98,7 @@ function precmd() {
     [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
 }
 RPROMPT=""
-PROMPT="%F{214}%n%f %F{white}in%f %F{magenta}%M%f %F{white}at%f %F{cyan}%~%f %1(v|%F{white}on%f %F{red}%1v%f|) %F{green}[%T]%f
+PROMPT="%F{214}%M%f %F{white}at%f %F{cyan}%~%f %1(v|%F{white}on%f %F{red}%1v%f|)
 %B%F{yellow}> %f%b%{${reset_color}%}"
 
 # 補完の有効化
