@@ -98,7 +98,7 @@ function precmd() {
     [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
 }
 RPROMPT=""
-PROMPT="%F{214}%M%f %F{white}at%f %F{cyan}%~%f %1(v|%F{white}on%f %F{red}%1v%f|)
+PROMPT="%F{214}%M%f %F{white}at%f %F{cyan}%~%f %1(v|%F{white}on%f %F{196}%1v%f|)
 %B%F{yellow}> %f%b%{${reset_color}%}"
 
 # 補完の有効化
@@ -173,7 +173,7 @@ if zplug check "b4b4r07/enhancd"; then
     ENHANCD_FILTER=fzf
 fi
 
-zplug "zdharma/fast-syntax-highlighting", defer:2
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "zsh-users/zsh-completions", lazy:true
 
 zplug "zsh-users/zsh-autosuggestions", use:zsh-autosuggestions.zsh
