@@ -45,4 +45,4 @@ done
 vim +PlugInstall +qall
 
 # relogin zsh
-echo ">>>>> type \"source ~/.zshrc\" <<<<<"
+echo ">>>>> type \"exec zsh\" <<<<<"

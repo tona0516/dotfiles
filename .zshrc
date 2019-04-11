@@ -176,7 +176,7 @@ fi
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "zsh-users/zsh-completions", lazy:true
 
-zplug "zsh-users/zsh-autosuggestions", use:zsh-autosuggestions.zsh
+zplug "zsh-users/zsh-autosuggestions", use:zsh-autosuggestions.zsh, defer:2
 if zplug check "zsh-users/zsh-autosuggestions"; then
     ZSH_AUTOSUGGEST_USE_ASYNC=true
 fi
