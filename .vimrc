@@ -80,6 +80,14 @@ imap <C-e> <End>
 nmap <Tab> :tabp<CR>
 nmap <S-Tab> :tabn<CR>
 nmap <C-t> :tabnew<CR>
+" 括弧→補完→改行→インデント
+inoremap {<Enter> {}<Left><CR><ESC><S-o>
+inoremap [<Enter> []<Left><CR><ESC><S-o>
+inoremap (<Enter> ()<Left><CR><ESC><S-o>
+
+" 不可視文字を表示する
+set list
+set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
 
 "jjでノーマルモードにして保存
 inoremap <silent> jj <ESC>
@@ -145,6 +153,7 @@ Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'w0ng/vim-hybrid'
 Plug 'tomasr/molokai'
+Plug 'ConradIrwin/vim-bracketed-paste'
 call plug#end()
 
 " インストール判定関数
