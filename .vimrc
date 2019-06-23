@@ -87,7 +87,7 @@ inoremap (<Enter> ()<Left><CR><ESC><S-o>
 
 " 不可視文字を表示する
 set list
-set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
+set listchars=tab:»-,trail:-,eol:$,extends:»,precedes:«,nbsp:%
 
 "jjでノーマルモードにして保存
 inoremap <silent> jj <ESC>
