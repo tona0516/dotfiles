@@ -36,9 +36,9 @@ alias groot=""cd-gitroot
 alias ssh='ssh -A'
 alias rezsh='source ~/.zshrc'
 alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
-alias .....='cd ../../../..'
+alias ..2='cd ../..'
+alias ..3='cd ../../..'
+alias ..4='cd ../../../..'
 alias sudo-vim='sudo -E vim'
 
 function memo() {
