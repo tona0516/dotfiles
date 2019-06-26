@@ -97,9 +97,9 @@ function precmd() {
     LANG=en_US.UTF-8 vcs_info
     [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
 }
-RPROMPT=""
-PROMPT="%F{214}%M%f %F{white}at%f %F{cyan}%~%f %1(v|%F{white}on%f %F{196}%1v%f|)
-%B%F{yellow}> %f%b%{${reset_color}%}"
+# RPROMPT=""
+# PROMPT="%F{214}%M%f %F{white}at%f %F{cyan}%~%f %1(v|%F{white}on%f %F{196}%1v%f|)
+# %B%F{yellow}> %f%b%{${reset_color}%}"
 
 # 補完の有効化
 autoload -Uz compinit && compinit -u
@@ -193,6 +193,15 @@ if zplug check "mollifier/anyframe"; then
 fi
 
 zplug "chrissicool/zsh-256color"
+
+zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme, as:theme
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(host dir vcs newline status)
+# POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+POWERLEVEL9K_DISABLE_RPROMPT=true
+POWERLEVEL9K_HOST_LOCAL_BACKGROUND='darkgreen'
+POWERLEVEL9K_HOST_LOCAL_FOREGROUND='white'
+POWERLEVEL9K_HOST_REMOTE_BACKGROUND='purple4'
+POWERLEVEL9K_HOST_REMOTE_FOREGROUND='white'
 
 # install
 zplug install
