@@ -28,10 +28,11 @@ alias ga='git add'
 alias gc='git commit'
 alias gs='git status'
 alias gl="git log --pretty='format:%C(yellow)%h %C(cyan)%an %C(green)%cd %C(reset)%s %C(red)%d' --date=short"
+alias gll="git log --pretty='format:%h %an %cd %s' --date=short | fzf | cut -d' ' -f1 | xargs git show"
 alias gr='git reset'
 alias gd='git diff'
 alias gdd='git diff --cached'
-alias gll="git log --pretty='format:%h %an %cd %s' --date=short | fzf | cut -d' ' -f1 | xargs git show"
+alias groot=""cd-gitroot
 alias ssh='ssh -A'
 alias rezsh='source ~/.zshrc'
 alias ..='cd ..'
@@ -193,6 +194,8 @@ if zplug check "mollifier/anyframe"; then
 fi
 
 zplug "chrissicool/zsh-256color"
+
+zplug "mollifier/cd-gitroot"
 
 # install
 zplug install
