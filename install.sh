@@ -14,7 +14,7 @@ echo -n "
 echo "--------------------------------------------------------------------------------"
 
 DOTPATH=~/dotfiles
-EXCLUDED_DOTFILES=(.git .gitignore)
+EXCLUDED_DOTFILES=(.git .gitignore .gitmodules)
 
 function check_installed() {
     base_error_description=" is not installed. Please install it before \"make install\"."
@@ -41,15 +41,10 @@ do
     [ $should_create_link = true ] && ln -snfv "$DOTPATH/$f" "$HOME/$f"
 done
 
-git clone https://github.com/powerline/fonts.git --depth=1
-
-# install
-cd fonts
-./install.sh
-
-# clean-up a bit
-cd ..
-rm -rf fonts
+# install font
+git submodule init
+git submodule update --depth 1
+.font/install.sh
 
 # install vim plugins
 vim +PlugInstall +qall

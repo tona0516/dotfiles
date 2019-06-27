@@ -197,9 +197,11 @@ fi
 
 zplug "chrissicool/zsh-256color"
 
-zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme, as:theme
+# fast powerlevel9k
+zplug "romkatv/powerlevel10k", use:powerlevel10k.zsh-theme
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(host dir vcs newline status)
-# POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+POWERLEVEL9K_VCS_GIT_HOOKS=(git-aheadbehind git-remotebranch git-tagname)
+
 POWERLEVEL9K_DISABLE_RPROMPT=true
 POWERLEVEL9K_HOST_LOCAL_BACKGROUND='darkgreen'
 POWERLEVEL9K_HOST_LOCAL_FOREGROUND='white'
