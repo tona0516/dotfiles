@@ -55,4 +55,4 @@ rm -rf fonts
 vim +PlugInstall +qall
 
 # relogin zsh
-echo ">>>>> type \"exec zsh\" <<<<<"
+exec zsh -l
