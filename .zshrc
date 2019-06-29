@@ -13,14 +13,12 @@ is_mac() {
 # Aliases
 #----------------------------------------
 if is_mac; then
-    # Mac
-    alias ll='ls -Gla'
     alias ls='ls -G'
 else
-    # Linux
-    alias ll='ls -la --color=auto'
     alias ls='ls --color=auto'
 fi
+alias ll='ls -l'
+alias lla='ls -la'
 alias h='hostname'
 alias git='noglob git'
 alias g='git'
