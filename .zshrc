@@ -186,7 +186,7 @@ zplug "chrissicool/zsh-256color"
 zplug "romkatv/powerlevel10k", use:powerlevel10k.zsh-theme
 if zplug check "romkatv/powerlevel10k"; then
     POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(host dir vcs newline)
-    POWERLEVEL9K_VCS_GIT_HOOKS=(git-aheadbehind git-remotebranch git-tagname)
+    POWERLEVEL9K_VCS_GIT_HOOKS=()
 
     POWERLEVEL9K_DISABLE_RPROMPT=true
     POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
