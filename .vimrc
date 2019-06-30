@@ -154,6 +154,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'w0ng/vim-hybrid'
 Plug 'tomasr/molokai'
 Plug 'ConradIrwin/vim-bracketed-paste'
+Plug 'tyru/caw.vim'
 call plug#end()
 
 " インストール判定関数
@@ -197,5 +198,13 @@ if s:is_plugged("vim-hybrid") && has('unix')
     colorscheme hybrid
 elseif s:is_plugged("molokai")
     colorscheme molokai
+endif
+
+"----------------------------------------
+" caw.vin
+"----------------------------------------
+if s:is_plugged("caw.vim")
+    nmap <C-_> <plug>(caw:hatpos:toggle)
+    vmap <C-_> <plug>(caw:hatpos:toggle)
 endif
 
