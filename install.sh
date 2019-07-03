@@ -41,11 +41,6 @@ do
     [ $should_create_link = true ] && ln -snfv "$DOTPATH/$f" "$HOME/$f"
 done
 
-# install fonts
-git submodule init
-git submodule update --depth 1
-./fonts/install.sh
-
 # install vim plugins
 vim +PlugInstall +qall
 
