@@ -40,6 +40,7 @@ alias ..2='cd ../..'
 alias ..3='cd ../../..'
 alias ..4='cd ../../../..'
 alias sudo-vim='sudo -E vim'
+alias vim-modified="git status --porcelain | awk '{print \$2}' | fzf | xargs -o vim"
 
 function memo() {
     today_formatted=`date '+%Y_%m_%d'`
