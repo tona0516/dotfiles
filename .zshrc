@@ -19,6 +19,7 @@ else
 fi
 alias ll='ls -l'
 alias lla='ls -la'
+alias sl='ls'
 alias h='hostname'
 alias git='noglob git'
 alias g='git'
