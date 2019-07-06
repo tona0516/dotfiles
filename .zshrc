@@ -41,7 +41,6 @@ alias ..2='cd ../..'
 alias ..3='cd ../../..'
 alias ..4='cd ../../../..'
 alias sudo-vim='sudo -E vim'
-alias vim-modified="git status --porcelain | awk '{print \$2}' | fzf | xargs -o vim"
 
 function memo() {
     today_formatted=`date '+%Y_%m_%d'`
@@ -161,6 +160,14 @@ function cd-fzf-find() {
     fi
 }
 alias fd=cd-fzf-find
+
+# Git管理下のmodified fileを開く
+function vim-modified() {
+    local FILE=$(git status --porcelain | awk '{print $2}' | fzf +m)
+    if [ -n "$FILE" ]; then
+        ${EDITOR:-vim} $FILE
+    fi
+}
 
 # install plugins
 zplug "b4b4r07/enhancd", use:init.sh
