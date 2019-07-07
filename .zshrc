@@ -216,6 +216,7 @@ else
 fi
 
 zplug "mollifier/cd-gitroot"
+zplug 'wfxr/forgit'
 
 # install
 zplug install
