@@ -78,6 +78,7 @@ setopt extended_history # 履歴ファイルにzsh の開始・終了時刻を�
 setopt hist_ignore_all_dups # 重複するコマンドは古い方を削除する
 setopt interactivecomments # コメントを使えるようにする
 setopt noflowcontrol # フロー制御を無効にする
+setopt ignoreeof # Ctrl+d無効
 
 # ビープ音を無効にする
 setopt no_beep
