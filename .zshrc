@@ -29,7 +29,8 @@ alias gc='git commit'
 alias gcm='git commit -m'
 alias gs='git status'
 alias gl="git log --pretty='format:%C(yellow)%h %C(cyan)%an %C(green)%cd %C(reset)%s %C(red)%d' --date=short"
-alias gll="git log --pretty='format:%h %an %cd %s' --date=short | fzf | cut -d' ' -f1 | xargs git show"
+# alias gll="git log --pretty='format:%h %an %cd %s' --date=short | fzf | cut -d' ' -f1 | xargs git show"
+alias gll='glo' # forgit plugin alias
 alias gr='git reset'
 alias gd='git diff'
 alias gdd='git diff --cached'
