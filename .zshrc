@@ -106,14 +106,6 @@ zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 # 大文字小文字を区別しない
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
-# 入力した文字から始まるコマンドを履歴から検索し、上下矢印で補完
-autoload -U up-line-or-beginning-search
-autoload -U down-line-or-beginning-search
-zle -N up-line-or-beginning-search
-zle -N down-line-or-beginning-search
-bindkey "^[[A" up-line-or-beginning-search
-bindkey "^[[B" down-line-or-beginning-search
-
 #----------------------------------------
 # ZPLUG
 #----------------------------------------
