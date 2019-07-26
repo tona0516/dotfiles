@@ -193,7 +193,8 @@ fi
 
 zplug "chrissicool/zsh-256color"
 
-if is_mac; then
+INT_ZSH_VERSION=$(echo $ZSH_VERSION | awk -F. '{printf "%2d%02d%02d", $1,$2,$3}')
+if [ "$INT_ZSH_VERSION" -ge 50000 ]; then
     zplug "romkatv/gitstatus", use:'gitstatus.prompt.zsh'
 else
     autoload -Uz vcs_info
