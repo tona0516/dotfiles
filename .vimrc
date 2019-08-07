@@ -188,6 +188,8 @@ endif
 "----------------------------------------
 if s:is_plugged("fzf.vim")
     map <C-o> :Files<CR>
+    map <C-r> :History<CR>
+    map r :redo<CR>
 endif
 
 "----------------------------------------
