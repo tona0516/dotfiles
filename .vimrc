@@ -77,8 +77,8 @@ nmap <C-e> <End>
 imap <C-a> <Home>
 imap <C-e> <End>
 " Tabでタブ移動
-nmap <Tab> :tabp<CR>
-nmap <S-Tab> :tabn<CR>
+nmap <Tab> :tabn<CR>
+nmap <S-Tab> :tabp<CR>
 nmap <C-t> :tabnew<CR>
 " 括弧→補完→改行→インデント
 inoremap {<Enter> {}<Left><CR><ESC><S-o>
