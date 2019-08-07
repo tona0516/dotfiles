@@ -196,6 +196,7 @@ endif
 if s:is_plugged("vim-hybrid") && has('unix')
     set background=dark
     colorscheme hybrid
+    highlight LineNr ctermfg=gray
 elseif s:is_plugged("molokai")
     colorscheme molokai
 endif
