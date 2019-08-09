@@ -177,13 +177,6 @@ if s:is_plugged("nerdtree")
 endif
 
 "----------------------------------------
-" ctrlp
-"----------------------------------------
-if s:is_plugged("ctrlp.vim")
-    let g:ctrlp_show_hidden = 1
-endif
-
-"----------------------------------------
 " fzf
 "----------------------------------------
 if s:is_plugged("fzf.vim")
@@ -193,7 +186,7 @@ if s:is_plugged("fzf.vim")
 endif
 
 "----------------------------------------
-" vim-hybrid
+" colorscheme
 "----------------------------------------
 if s:is_plugged("vim-hybrid") && has('unix')
     set background=dark
