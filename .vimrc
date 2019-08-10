@@ -197,7 +197,7 @@ elseif s:is_plugged("molokai")
 endif
 
 "----------------------------------------
-" caw.vin
+" caw.vim
 "----------------------------------------
 if s:is_plugged("caw.vim")
     nmap <C-_> <plug>(caw:hatpos:toggle)
