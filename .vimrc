@@ -146,12 +146,12 @@ Plug 'scrooloose/nerdtree' " ツリー型のファイル表示
 Plug 'jistr/vim-nerdtree-tabs' " タブ強化プラグイン
 Plug 'mhinz/vim-grepper' " 高速grepするやつ
 Plug 'tpope/vim-fugitive' " vimでGitコマンドを使う
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
-Plug 'w0ng/vim-hybrid'
-Plug 'tomasr/molokai'
-Plug 'ConradIrwin/vim-bracketed-paste'
-Plug 'tyru/caw.vim'
+Plug 'junegunn/fzf' " インクリメンタルサーチ
+Plug 'junegunn/fzf.vim' " インクリメンタルサーチ
+Plug 'w0ng/vim-hybrid' " カラースキーム
+Plug 'tomasr/molokai' " カラースキーム
+Plug 'ConradIrwin/vim-bracketed-paste' "自動set paste
+Plug 'tyru/caw.vim' " ctrl+/でコメントアウトのトグル
 call plug#end()
 
 " インストール判定関数
