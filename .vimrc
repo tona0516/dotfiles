@@ -145,9 +145,6 @@ Plug 'ujihisa/neco-look' " 英単語の補完
 Plug 'scrooloose/nerdtree' " ツリー型のファイル表示
 Plug 'jistr/vim-nerdtree-tabs' " タブ強化プラグイン
 Plug 'mhinz/vim-grepper' " 高速grepするやつ
-Plug 'scrooloose/syntastic' " swiftのSyntax check
-Plug 'kballard/vim-swift' " swiftのSyntax check
-Plug 'keith/swift.vim' " swiftのsyntax highlight
 Plug 'tpope/vim-fugitive' " vimでGitコマンドを使う
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
