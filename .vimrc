@@ -102,9 +102,6 @@ endif
 "左右のカーソル移動で行間移動可能にする。
 set whichwrap+=b,s,h,l,<,>,[,]
 
-" " コメントのハイライトをグレーにする
-highlight Comment ctermfg=Green
-
 " マウスでカーソル移動できるようにする
 if has('mouse')
     set mouse=a
@@ -117,7 +114,7 @@ if has('mouse')
     endif
 end
 
-" 最後にいたカーソルを記憶す
+" 最後にいたカーソルを記憶する
 if has("autocmd")
   augroup redhat
     " In text files, always limit the width of text to 78 characters
@@ -167,9 +164,7 @@ endfunction
 " NERDTree
 "----------------------------------------
 if s:is_plugged("nerdtree")
-    " Ctrl+eで表示切り替え
     map <C-n> :NERDTreeTabsToggle<CR>
-    " 隠しファイルをデフォルトで表示させる
     let NERDTreeShowHidden = 1
 endif
 
