@@ -39,6 +39,8 @@ nnoremap j gj
 nnoremap k gk
 "シンタックスに色をつける
 syntax on
+" スクロール時に数行余らせる
+set scrolloff=3
 
 " Tab系
 " 不可視文字を可視化(タブが「▸-」と表示される)
