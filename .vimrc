@@ -151,6 +151,7 @@ Plug 'w0ng/vim-hybrid' " カラースキーム
 Plug 'tomasr/molokai' " カラースキーム
 Plug 'ConradIrwin/vim-bracketed-paste' "自動set paste
 Plug 'tyru/caw.vim' " ctrl+/でコメントアウトのトグル
+Plug 'airblade/vim-gitgutter'
 call plug#end()
 
 " インストール判定関数
