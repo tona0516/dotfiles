@@ -73,11 +73,11 @@ imap <C-h> <Left>
 imap <C-j> <Down>
 imap <C-k> <Up>
 imap <C-l> <Right>
-" 挿入モード時にemacのようにctrl+aで先頭、ctrl+eで末尾に移動する
-nmap <C-a> <Home>
-nmap <C-e> <End>
-imap <C-a> <Home>
-imap <C-e> <End>
+" emacsのようにctrl+aで先頭、ctrl+eで末尾に移動する
+noremap <C-a> <Home>
+nnoremap <C-e> <End>
+" 改行まで移動してしまうので防ぐ
+vnoremap <C-e> <End><Left>
 " Tabでタブ移動
 nmap <Tab> :tabn<CR>
 nmap <S-Tab> :tabp<CR>
