@@ -213,6 +213,7 @@ fi
 zplug "mollifier/cd-gitroot"
 zplug 'wfxr/forgit'
 zplug 'b4b4r07/gomi', as:command, from:gh-r, rename-to:gomi, use:"*darwin*amd64*"
+zplug "paulirish/git-open", as:plugin
 
 # install
 zplug install
