@@ -73,6 +73,8 @@ imap <C-h> <Left>
 imap <C-j> <Down>
 imap <C-k> <Up>
 imap <C-l> <Right>
+imap <C-a> <Home>
+imap <C-e> <End>
 " emacsのようにctrl+aで先頭、ctrl+eで末尾に移動する
 noremap <C-a> <Home>
 nnoremap <C-e> <End>
