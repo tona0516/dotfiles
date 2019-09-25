@@ -134,7 +134,11 @@ bindkey '^s' select-snippets
 
 # grepの検索結果をvimで開く (隠しファイルは除外)
 function grep-vim() {
-    grep -rn --exclude-dir=kernel $1 * | fzf | tr ':' ' ' | awk '{print $1,$2}' | xargs sh -c 'vim -c $1 $0 < /dev/tty'
+    ret=$(grep -rn --exclude-dir=kernel $1 * | fzf | tr ':' ' ' | awk '{print $1,$2}')
+    if [ -n "$ret" ]; then
+        eval "arr=($ret)"
+        vim "+"$arr[2] $arr[1]
+    fi
 }
 
 # findの検索結果をvimで開く
