@@ -170,7 +170,7 @@ function vim-modified() {
 zplug "b4b4r07/enhancd", use:init.sh
 if zplug check "b4b4r07/enhancd"; then
     ENHANCD_DISABLE_HOME=0
-    ENHANCD_DISABLE_DOT=0
+    ENHANCD_DISABLE_DOT=1
     ENHANCD_DISABLE_HYPHEN=1
     ENHANCD_FILTER=fzf
 fi
