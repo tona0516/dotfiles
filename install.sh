@@ -16,9 +16,9 @@ echo "--------------------------------------------------------------------------
 DOTPATH=~/dotfiles
 EXCLUDED_DOTFILES=(.git .gitignore .gitmodules)
 
-function check_installed() {
+check_installed() {
     base_error_description=" is not installed. Please install it before \"make install\"."
-    if [ ! `which $1` ]; then
+    if ! type $1 > /dev/null 2>&1; then
         echo $1$base_error_description
         exit 1
     fi

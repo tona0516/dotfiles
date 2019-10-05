@@ -3,3 +3,6 @@ install:
 
 uninstall:
 	./uninstall.sh
+
+update:
+	./update.sh
