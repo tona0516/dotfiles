@@ -33,7 +33,7 @@ set showmatch
 " ステータスラインを常に表示
 set laststatus=2
 " コマンドラインの補完
-set wildmode=list:longest
+set wildmode=list:full
 " 折り返し時に表示行単位での移動できるようにする
 nnoremap j gj
 nnoremap k gk
