@@ -9,5 +9,5 @@ if ! zplug check "romkatv/gitstatus"; then
     }
     RPROMPT=""
     PROMPT="%F{214}%M%f %F{white}at%f %F{cyan}%~%f %1(v|%F{white}on%f %F{196}%1v%f|)
-    %B%F{yellow}> %f%b%{${reset_color}%}"
+%B%F{yellow}> %f%b%{${reset_color}%}"
 fi
