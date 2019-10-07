@@ -20,7 +20,7 @@ memo() {
     memo_dir=$HOME'/Documents/daily_report/'
     memo_path=$memo_dir$memo_filename
 
-    if `is_exists code`; then
+    if ! is_exists code; then
         echo "not found code command."
         exit 1
     fi
