@@ -19,13 +19,12 @@ if zplug check "b4b4r07/enhancd"; then
     ENHANCD_DISABLE_HYPHEN=1
     ENHANCD_FILTER=fzf
 fi
-zplug "zsh-users/zsh-syntax-highlighting", defer:2
+zplug "zdharma/fast-syntax-highlighting", defer:2
 zplug "zsh-users/zsh-completions", lazy:true
 zplug "zsh-users/zsh-autosuggestions", use:zsh-autosuggestions.zsh, defer:2
 if zplug check "zsh-users/zsh-autosuggestions"; then
     ZSH_AUTOSUGGEST_USE_ASYNC=true
 fi
-zplug "motemen/ghq", as:command, from:gh-r, rename-to:ghq
 zplug "mollifier/anyframe"
 zplug "chrissicool/zsh-256color"
 
@@ -35,8 +34,9 @@ if [ "$INT_ZSH_VERSION" -ge 50300 ]; then
 fi
 zplug "mollifier/cd-gitroot"
 zplug 'wfxr/forgit'
-zplug "paulirish/git-open", as:plugin
 
-# install
-zplug install
+# install and load
+if ! zplug check --verbose; then
+    zplug install
+fi
 zplug load

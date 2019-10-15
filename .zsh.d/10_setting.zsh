@@ -14,7 +14,6 @@ setopt ignore_eof # Ctrl+d無効
 setopt no_beep # ビープ音を無効にする
 setopt no_hist_beep # ビープ音を無効にする
 setopt no_list_beep  # ビープ音を無効にする
-setopt correct # コマンドミスを修正
 setopt auto_param_keys #変数名を補完する
 setopt auto_resume # サスペンド中のプロセスと同じコマンド名を実行した場合はリジュームする
 setopt brace_ccl # echo {a-z}などを使えるようにする
@@ -28,7 +27,8 @@ HISTSIZE=1000000
 SAVEHIST=1000000
 
 # 補完の有効化
-autoload -Uz compinit && compinit -u
+# zplugで呼ばれるので不要
+# autoload -Uz compinit && compinit -u
 
 # 補完候補を一覧表示したとき、Tabや矢印で選択できるように
 zstyle ':completion:*:default' menu select=1

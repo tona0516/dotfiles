@@ -50,24 +50,9 @@ grep-vim() {
     fi
 }
 
-vim-fzf-find() {
-    local FILE=$(find ./ -path '*/\.*' -name .git -prune -o -type f -print 2> /dev/null | fzf +m)
-    if [ -n "$FILE" ]; then
-        ${EDITOR:-vim} $FILE
-    fi
-}
-
-cd-fzf-find() {
-    local DIR=$(find ./ -path '*/\.*' -name .git -prune -o -type d -print 2> /dev/null | fzf +m)
-    if [ -n "$DIR" ]; then
-        cd $DIR
-    fi
-}
-
 vim-modified() {
     local FILE=$(git status --porcelain | awk '{print $2}' | fzf +m)
     if [ -n "$FILE" ]; then
         ${EDITOR:-vim} $FILE
     fi
 }
-
