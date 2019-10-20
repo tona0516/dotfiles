@@ -19,11 +19,12 @@ alias groot='cd-gitroot'
 alias ssh='ssh -A'
 alias rezsh='source ~/.zshrc'
 alias ..='cd ..'
-alias ..2='cd ../..'
-alias ..3='cd ../../..'
-alias ..4='cd ../../../..'
+alias ...='cd ../..'
 alias sudo-vim='sudo -E vim'
 alias gco=anyframe-widget-checkout-git-branch
+alias psa="ps aux"
+alias psg="ps aux | grep "
+alias df='df -h'
 
 # C で標準出力をクリップボードにコピーする
 if which pbcopy >/dev/null 2>&1 ; then
