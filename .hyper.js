@@ -133,6 +133,9 @@ module.exports = {
     'hyper-broadcast',
     'hyper-search',
     'hyper-tab-icons',
+    'hyperterm-material',
+    'hyper-pane',
+    'hyper-confirm',
   ],
 
   // in development, you can create a directory under
