@@ -19,7 +19,7 @@ if zplug check "b4b4r07/enhancd"; then
     ENHANCD_DISABLE_HYPHEN=1
     ENHANCD_FILTER=fzf
 fi
-zplug "zdharma/fast-syntax-highlighting", defer:2
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "zsh-users/zsh-completions", lazy:true
 zplug "zsh-users/zsh-autosuggestions", use:zsh-autosuggestions.zsh, defer:2
 if zplug check "zsh-users/zsh-autosuggestions"; then
