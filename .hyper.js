@@ -121,6 +121,25 @@ module.exports = {
 
     // URL to custom bell
     // bellSoundURL: 'http://example.com/bell.mp3',
+
+    // hyper-material-theme settings
+    MaterialTheme: {
+      // Set the theme variant,
+      // OPTIONS: 'Darker', 'Palenight', 'Ocean', ''
+      theme: 'Darker',
+
+      // [Optional] Set the rgba() app background opacity, useful when enableVibrance is true
+      // OPTIONS: From 0.1 to 1
+      backgroundOpacity: '1',
+
+      // [Optional] Set the accent color for the current active tab
+      accentColor: '#64FFDA',
+
+      // [Optional] Mac Only. Need restart. Enable the vibrance and blurred background
+      // OPTIONS: 'dark', 'ultra-dark', 'bright'
+      // NOTE: The backgroundOpacity should be between 0.1 and 0.9 to see the effect.
+      vibrancy: 'dark'
+    },
   },
 
   // a list of plugins to fetch and install from npm
@@ -133,7 +152,7 @@ module.exports = {
     'hyper-broadcast',
     'hyper-search',
     'hyper-tab-icons',
-    'hyperterm-material',
+    'hyper-material-theme',
     'hyper-pane',
     'hyper-confirm',
   ],
