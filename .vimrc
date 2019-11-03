@@ -76,10 +76,8 @@ imap <C-l> <Right>
 imap <C-a> <Home>
 imap <C-e> <End>
 " emacsのようにctrl+aで先頭、ctrl+eで末尾に移動する
-noremap <C-a> <Home>
+nnoremap <C-a> <Home>
 nnoremap <C-e> <End>
-" 改行まで移動してしまうので防ぐ
-vnoremap <C-e> <End><Left>
 " Tabでタブ移動
 nmap <Tab> :tabn<CR>
 nmap <S-Tab> :tabp<CR>
@@ -106,18 +104,6 @@ endif
 "左右のカーソル移動で行間移動可能にする。
 set whichwrap+=b,s,h,l,<,>,[,]
 
-" マウスでカーソル移動できるようにする
-if has('mouse')
-    set mouse=a
-    if has('mouse_sgr')
-        set ttymouse=sgr
-    elseif v:version > 703 || v:version is 703 && has('patch632')
-        set ttymouse=sgr
-    else
-        set ttymouse=xterm2
-    endif
-end
-
 " 最後にいたカーソルを記憶する
 if has("autocmd")
   augroup redhat
@@ -134,6 +120,13 @@ endif
 " 新しいウィンドウを右側で開く
 set splitright
 
+" ctrl+lで行情報表示/非表示
+function! s:toggle_line_info()
+    set invnumber
+    GitGutterToggle
+endfunction
+command! LineInfoToggle call s:toggle_line_info()
+nnoremap <C-l> :LineInfoToggle<CR>
 "----------------------------------------
 " vim-plug
 "----------------------------------------
@@ -152,7 +145,7 @@ Plug 'junegunn/fzf.vim' " インクリメンタルサーチ
 Plug 'w0ng/vim-hybrid' " カラースキーム
 Plug 'tomasr/molokai' " カラースキーム
 Plug 'ConradIrwin/vim-bracketed-paste' "自動set paste
-Plug 'tyru/caw.vim' " ctrl+/でコメントアウトのトグル
+Plug 'tpope/vim-commentary' " gccでコメントアウト
 Plug 'airblade/vim-gitgutter' " Gitを使えるようにする
 Plug 'scrooloose/syntastic' " シンタックスチェック
 call plug#end()
@@ -194,13 +187,5 @@ if s:is_plugged("vim-hybrid") && has('unix')
     highlight LineNr ctermfg=lightgreen
 elseif s:is_plugged("molokai")
     colorscheme molokai
-endif
-
-"----------------------------------------
-" caw.vim
-"----------------------------------------
-if s:is_plugged("caw.vim")
-    nmap <C-_> <plug>(caw:hatpos:toggle)
-    vmap <C-_> <plug>(caw:hatpos:toggle)
 endif
 
