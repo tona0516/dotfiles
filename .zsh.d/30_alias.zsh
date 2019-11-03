@@ -25,6 +25,7 @@ alias gco=anyframe-widget-checkout-git-branch
 alias psa="ps aux"
 alias psg="ps aux | grep "
 alias df='df -h'
+alias dotfiles="cd ~/dotfiles"
 
 # C で標準出力をクリップボードにコピーする
 if which pbcopy >/dev/null 2>&1 ; then
