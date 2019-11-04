@@ -30,7 +30,8 @@ zplug "chrissicool/zsh-256color"
 
 INT_ZSH_VERSION=$(echo $ZSH_VERSION | awk -F. '{printf "%2d%02d%02d", $1,$2,$3}')
 if [ "$INT_ZSH_VERSION" -ge 50300 ]; then
-    zplug "romkatv/gitstatus", use:'gitstatus.prompt.zsh'
+    # zplug "romkatv/gitstatus", use:'gitstatus.prompt.zsh'
+    zplug "romkatv/powerlevel10k", as:theme, depth:1
 fi
 zplug "mollifier/cd-gitroot"
 zplug 'wfxr/forgit'
