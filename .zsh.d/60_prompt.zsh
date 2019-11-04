@@ -1,4 +1,4 @@
-if ! zplug check "romkatv/gitstatus"; then
+if ! zplug check "romkatv/powerlevel10k"; then
     autoload -Uz vcs_info
     zstyle ':vcs_info:*' formats '%b'
     zstyle ':vcs_info:*' actionformats '%b|%a'
