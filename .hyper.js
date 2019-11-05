@@ -140,6 +140,9 @@ module.exports = {
       // NOTE: The backgroundOpacity should be between 0.1 and 0.9 to see the effect.
       vibrancy: 'dark'
     },
+
+    // The number of rows to be persisted in terminal buffer for scrolling
+    scrollback: 100000,
   },
 
   // a list of plugins to fetch and install from npm
