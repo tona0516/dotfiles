@@ -32,6 +32,8 @@ INT_ZSH_VERSION=$(echo $ZSH_VERSION | awk -F. '{printf "%2d%02d%02d", $1,$2,$3}'
 if [ "$INT_ZSH_VERSION" -ge 50300 ]; then
     # zplug "romkatv/gitstatus", use:'gitstatus.prompt.zsh'
     zplug "romkatv/powerlevel10k", as:theme, depth:1, hook-load:"source ~/.p10k.zsh"
+else
+    zplug "themes/suvash", from:oh-my-zsh
 fi
 zplug "mollifier/cd-gitroot"
 zplug 'wfxr/forgit'
