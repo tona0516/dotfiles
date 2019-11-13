@@ -1,0 +1,12 @@
+[core]
+    editor = vim
+    ignorecase = false
+    quotepath = false
+[color]
+    ui = true
+[gui]
+    encoding = utf-8
+[push]
+    default = current
+[credential]
+    helper = cache --timeout=86400
