@@ -1,5 +1,5 @@
 install:
-	./install.sh
+	./script/install.sh
 
 uninstall:
-	./uninstall.sh
+	./script/uninstall.sh
