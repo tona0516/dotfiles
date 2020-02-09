@@ -40,3 +40,8 @@ zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
 # 大文字小文字を区別しない
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+
+# 失敗したコマンドを履歴に残らないようにする
+zshaddhistory() {
+    whence ${${(z)1}[1]} >| /dev/null || return 1
+}
