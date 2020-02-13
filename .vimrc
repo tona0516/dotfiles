@@ -148,6 +148,7 @@ Plug 'ConradIrwin/vim-bracketed-paste' "自動set paste
 Plug 'tpope/vim-commentary' " gccでコメントアウト
 Plug 'airblade/vim-gitgutter' " Gitを使えるようにする
 Plug 'scrooloose/syntastic' " シンタックスチェック
+Plug 'neoclide/coc.nvim', {'branch': 'release'} " 補完プラグイン
 call plug#end()
 
 " インストール判定関数
