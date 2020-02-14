@@ -33,7 +33,8 @@ set showmatch
 " ステータスラインを常に表示
 set laststatus=2
 " コマンドラインの補完
-set wildmode=list:full
+set wildmode=full
+set wildmenu
 " 折り返し時に表示行単位での移動できるようにする
 nnoremap j gj
 nnoremap k gk
@@ -148,6 +149,11 @@ Plug 'ConradIrwin/vim-bracketed-paste' "自動set paste
 Plug 'tpope/vim-commentary' " gccでコメントアウト
 Plug 'airblade/vim-gitgutter' " Gitを使えるようにする
 Plug 'scrooloose/syntastic' " シンタックスチェック
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
 call plug#end()
 
 " インストール判定関数
@@ -189,3 +195,11 @@ elseif s:is_plugged("molokai")
     colorscheme molokai
 endif
 
+"----------------------------------------
+" vim-lsp-settings
+"----------------------------------------
+if s:is_plugged("vim-lsp-settings")
+    let g:lsp_diagnostics_enabled = 1
+    let g:lsp_signs_enabled = 1
+    let g:lsp_diagnostics_echo_cursor = 1
+endif
