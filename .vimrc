@@ -147,12 +147,10 @@ Plug 'roxma/vim-paste-easy'
 Plug 'tpope/vim-commentary'
 Plug 'airblade/vim-gitgutter'
 Plug 'prabirshrestha/async.vim'
-if v:version >= 800
-    Plug 'prabirshrestha/vim-lsp'
-    Plug 'mattn/vim-lsp-settings'
-    Plug 'prabirshrestha/asyncomplete.vim'
-    Plug 'prabirshrestha/asyncomplete-lsp.vim'
-endif
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
 call plug#end()
 
 " インストール判定関数
@@ -163,7 +161,6 @@ function s:is_plugged(name)
         return 0
     endif
 endfunction
-
 "----------------------------------------
 " NERDTree
 "----------------------------------------
