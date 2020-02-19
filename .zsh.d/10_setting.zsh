@@ -47,4 +47,4 @@ zshaddhistory() {
 }
 
 # PATHの追加
-export PATH=/home/tonango/local/bin:$PATH
+export PATH=$HOME/local/bin:$PATH
