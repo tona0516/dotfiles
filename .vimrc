@@ -94,13 +94,10 @@ set listchars=tab:»-,trail:-,eol:$,extends:»,precedes:«,nbsp:%
 
 "jjでノーマルモードに
 inoremap <silent> jj <ESC>
-"挿入モード時は縦棒のカーソルを表示する
-if has('vim_starting')
-    " 挿入モード時に点滅の縦棒タイプのカーソル
-    let &t_SI .= "\e[5 q"
-    " ノーマルモード時に点滅の矩形タイプのカーソル
-    let &t_EI .= "\e[1 q"
-endif
+" 挿入モード時に点滅の縦棒タイプのカーソル
+let &t_SI .= "\e[5 q"
+" ノーマルモード時に点滅の矩形タイプのカーソル
+let &t_EI .= "\e[1 q"
 
 "左右のカーソル移動で行間移動可能にする。
 set whichwrap+=b,s,h,l,<,>,[,]
@@ -121,9 +118,10 @@ endif
 " 新しいウィンドウを右側で開く
 set splitright
 
-" ctrl+lで行情報表示/非表示
+" ctrl+lで行情報+不可視文字の表示/非表示
 function! s:toggle_line_info()
     set invnumber
+    set invlist
     GitGutterToggle
 endfunction
 command! LineInfoToggle call s:toggle_line_info()
@@ -143,6 +141,8 @@ Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'w0ng/vim-hybrid'
 Plug 'tomasr/molokai'
+Plug 'dylnmc/novum.vim'
+Plug 'mushanyoung/vim-windflower'
 Plug 'roxma/vim-paste-easy'
 Plug 'tpope/vim-commentary'
 Plug 'airblade/vim-gitgutter'
@@ -186,12 +186,8 @@ endif
 "----------------------------------------
 " colorscheme
 "----------------------------------------
-if s:is_plugged("vim-hybrid") && has('unix')
-    set background=dark
-    colorscheme hybrid
-    highlight LineNr ctermfg=lightgreen
-elseif s:is_plugged("molokai")
-    colorscheme molokai
+if s:is_plugged("vim-windflower") && has('unix')
+    colorscheme windflower
 endif
 
 "----------------------------------------
