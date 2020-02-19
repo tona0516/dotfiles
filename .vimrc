@@ -115,6 +115,11 @@ if has("autocmd")
   augroup END
 endif
 
+if has('vim_starting')
+    bo terminal ++rows=12
+endif
+autocmd vimenter * NERDTree
+
 " 新しいウィンドウを右側で開く
 set splitright
 
@@ -167,6 +172,7 @@ endfunction
 if s:is_plugged("nerdtree")
     map <C-n> :NERDTreeTabsToggle<CR>
     let NERDTreeShowHidden = 1
+    let g:NERDTreeWinSize = 48
 endif
 
 "----------------------------------------
