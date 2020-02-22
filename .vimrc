@@ -115,11 +115,6 @@ if has("autocmd")
   augroup END
 endif
 
-if has('vim_starting')
-    bo terminal ++rows=12
-endif
-autocmd vimenter * NERDTree
-
 " 新しいウィンドウを右側で開く
 set splitright
 
@@ -209,4 +204,3 @@ if s:is_plugged("asyncomplete.vim")
     " To auto close preview window when completion is done.
     autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 endif
-
