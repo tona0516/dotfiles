@@ -33,7 +33,8 @@ set showmatch
 " ステータスラインを常に表示
 set laststatus=2
 " コマンドラインの補完
-set wildmode=list:full
+set wildmode=full
+set wildmenu
 " 折り返し時に表示行単位での移動できるようにする
 nnoremap j gj
 nnoremap k gk
@@ -91,15 +92,12 @@ inoremap (<Enter> ()<Left><CR><ESC><S-o>
 set list
 set listchars=tab:»-,trail:-,eol:$,extends:»,precedes:«,nbsp:%
 
-"jjでノーマルモードにして保存
+"jjでノーマルモードに
 inoremap <silent> jj <ESC>
-"挿入モード時は縦棒のカーソルを表示する
-if has('vim_starting')
-    " 挿入モード時に非点滅の縦棒タイプのカーソル
-    let &t_SI .= "\e[6 q"
-    " ノーマルモード時に非点滅のブロックタイプのカーソル
-    let &t_EI .= "\e[2 q"
-endif
+" 挿入モード時に点滅の縦棒タイプのカーソル
+let &t_SI .= "\e[5 q"
+" ノーマルモード時に点滅の矩形タイプのカーソル
+let &t_EI .= "\e[1 q"
 
 "左右のカーソル移動で行間移動可能にする。
 set whichwrap+=b,s,h,l,<,>,[,]
@@ -120,9 +118,10 @@ endif
 " 新しいウィンドウを右側で開く
 set splitright
 
-" ctrl+lで行情報表示/非表示
+" ctrl+lで行情報+不可視文字の表示/非表示
 function! s:toggle_line_info()
     set invnumber
+    set invlist
     GitGutterToggle
 endfunction
 command! LineInfoToggle call s:toggle_line_info()
@@ -131,24 +130,29 @@ nnoremap <C-l> :LineInfoToggle<CR>
 " vim-plug
 "----------------------------------------
 call plug#begin('~/.vim/plugged')
-Plug 'Shougo/unite.vim' " ファイル操作とか
-Plug 'itchyny/lightline.vim' " 情報を見やすく
-Plug 'nathanaelkane/vim-indent-guides' " インデントを色分け
-Plug 'Townk/vim-autoclose' " カッコを自動で閉じる
-Plug 'ujihisa/neco-look' " 英単語の補完
-Plug 'scrooloose/nerdtree' " ツリー型のファイル表示
-Plug 'jistr/vim-nerdtree-tabs' " タブ強化プラグイン
-Plug 'mhinz/vim-grepper' " 高速grepするやつ
-Plug 'tpope/vim-fugitive' " vimでGitコマンドを使う
-Plug 'junegunn/fzf' " インクリメンタルサーチ
-Plug 'junegunn/fzf.vim' " インクリメンタルサーチ
-Plug 'w0ng/vim-hybrid' " カラースキーム
-Plug 'tomasr/molokai' " カラースキーム
-Plug 'ConradIrwin/vim-bracketed-paste' "自動set paste
-Plug 'tpope/vim-commentary' " gccでコメントアウト
-Plug 'airblade/vim-gitgutter' " Gitを使えるようにする
-Plug 'scrooloose/syntastic' " シンタックスチェック
-Plug 'neoclide/coc.nvim', {'branch': 'release'} " 補完プラグイン
+Plug 'itchyny/lightline.vim'
+Plug 'Townk/vim-autoclose'
+Plug 'scrooloose/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs'
+Plug 'xuyuanp/nerdtree-git-plugin'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'tpope/vim-fugitive'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'w0ng/vim-hybrid'
+Plug 'tomasr/molokai'
+Plug 'dylnmc/novum.vim'
+Plug 'mushanyoung/vim-windflower'
+Plug 'roxma/vim-paste-easy'
+Plug 'tpope/vim-commentary'
+Plug 'airblade/vim-gitgutter'
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'hrsh7th/vim-vsnip'
+Plug 'hrsh7th/vim-vsnip-integ'
 call plug#end()
 
 " インストール判定関数
@@ -159,13 +163,13 @@ function s:is_plugged(name)
         return 0
     endif
 endfunction
-
 "----------------------------------------
 " NERDTree
 "----------------------------------------
 if s:is_plugged("nerdtree")
     map <C-n> :NERDTreeTabsToggle<CR>
     let NERDTreeShowHidden = 1
+    let g:NERDTreeWinSize = 48
 endif
 
 "----------------------------------------
@@ -182,11 +186,23 @@ endif
 "----------------------------------------
 " colorscheme
 "----------------------------------------
-if s:is_plugged("vim-hybrid") && has('unix')
-    set background=dark
-    colorscheme hybrid
-    highlight LineNr ctermfg=lightgreen
-elseif s:is_plugged("molokai")
-    colorscheme molokai
+if s:is_plugged("vim-windflower") && has('unix')
+    colorscheme windflower
 endif
 
+"----------------------------------------
+" vim-lsp-settings
+"----------------------------------------
+if s:is_plugged("vim-lsp-settings")
+    let g:lsp_diagnostics_enabled = 1
+    let g:lsp_signs_enabled = 1
+    let g:lsp_diagnostics_echo_cursor = 1
+endif
+
+"----------------------------------------
+" asyncomplete.vim
+"----------------------------------------
+if s:is_plugged("asyncomplete.vim")
+    " To auto close preview window when completion is done.
+    autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+endif

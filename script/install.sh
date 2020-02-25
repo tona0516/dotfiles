@@ -14,7 +14,7 @@ echo -n "
 echo "--------------------------------------------------------------------------------"
 
 DOTPATH=~/dotfiles
-EXCLUDED_DOTFILES=(.git .gitignore .gitmodules)
+EXCLUDED_DOTFILES=(.git .gitignore .gitmodules .gitconfig)
 
 check_installed() {
     base_error_description=" is not installed. Please install it before \"make install\"."

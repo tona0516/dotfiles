@@ -45,3 +45,6 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zshaddhistory() {
     whence ${${(z)1}[1]} >| /dev/null || return 1
 }
+
+# PATHの追加
+export PATH=$HOME/local/bin:$PATH
