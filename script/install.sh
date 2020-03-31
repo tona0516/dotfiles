@@ -26,6 +26,8 @@ check_installed() {
 
 # check if the following commands are installed
 check_installed git
+check_installed curl
+check_installed vim
 
 # install vim-plug
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -44,5 +46,4 @@ done
 # install vim plugins
 vim +PlugInstall +qall
 
-# relogin zsh
 exec zsh -l
