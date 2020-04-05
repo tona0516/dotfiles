@@ -38,8 +38,9 @@ memo() {
 }
 
 select-snippets() {
-    BUFFER=$(cat ~/dotfiles/document/command_snippets | grep -v '^\s*#' | grep -v '^\s*$' | fzf +m --query "$LBUFFER" --prompt="Snippet > ")
+    BUFFER=$(pet search --query "$LBUFFER")
     CURSOR=$#BUFFER
+    zle redisplay
 }
 
 grep-vim() {
