@@ -44,6 +44,7 @@ do
 done
 
 # create synbolic links of directory in .config
+mkdir -p $HOME/.config
 for d in .config/*
 do
     ln -snfv "$DOTPATH/$d" "$HOME/.config"
