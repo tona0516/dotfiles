@@ -37,11 +37,6 @@ else
 fi
 zplug "mollifier/cd-gitroot"
 zplug 'wfxr/forgit'
-if is_mac; then
-    zplug "knqyf263/pet", as:command, from:gh-r, use:"*darwin*amd64*"
-else
-    zplug "knqyf263/pet", as:command, from:gh-r
-fi
 
 # install and load
 if ! zplug check --verbose; then

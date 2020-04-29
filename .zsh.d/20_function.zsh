@@ -38,7 +38,7 @@ memo() {
 }
 
 select-snippets() {
-    BUFFER=$(pet search --query "$LBUFFER")
+    BUFFER=$(cat ~/dotfiles/document/command_snippets | grep -v '^\s*#' | grep -v '^\s*$' | fzf +m --query "$LBUFFER" --prompt="Snippet > ")
     CURSOR=$#BUFFER
     zle redisplay
 }
