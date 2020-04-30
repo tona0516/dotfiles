@@ -186,8 +186,10 @@ endif
 "----------------------------------------
 " colorscheme
 "----------------------------------------
-if s:is_plugged("vim-windflower") && has('unix')
-    colorscheme windflower
+if s:is_plugged("vim-hybrid") && has('unix')
+    set background=dark
+    colorscheme hybrid
+    highlight LineNr ctermfg=lightgreen
 endif
 
 "----------------------------------------
