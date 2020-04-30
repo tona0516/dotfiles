@@ -1,5 +1,5 @@
-ssh-keygen -t rsa -C <key-name> # キーペア生成
-git clean -xdf # 作業ディレクトリから追跡対象外のファイルを削除
-git checkout -- . # 変更の取り消し
-git commit -m ""
-carthage update --platform iOS # Cartfileからframeworkを更新する
+echo | openssl s_client -connect `hostname`:443 2> /dev/null | openssl x509 -noout -dates
+carthage update --platform iOS
+sudo-vim /etc/dnsmasq.host
+sudo /etc/init.d/dnsmasq restart
+emulator -avd `emulator -list-avds | fzf` -dns-server <IP>
