@@ -70,19 +70,21 @@ nmap <Esc><Esc> :nohlsearch<CR><Esc>
 "重いスクロールの解決
 set lazyredraw
 " 挿入モード時はctrl+hjklで移動できるようにする
-imap <C-h> <Left>
-imap <C-j> <Down>
-imap <C-k> <Up>
-imap <C-l> <Right>
-imap <C-a> <Home>
-imap <C-e> <End>
+inoremap <C-h> <Left>
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
+inoremap <C-l> <Right>
+inoremap <C-a> <Home>
+inoremap <C-e> <End>
 " emacsのようにctrl+aで先頭、ctrl+eで末尾に移動する
 nnoremap <C-a> <Home>
 nnoremap <C-e> <End>
+vnoremap <C-a> <Home>
+vnoremap <C-e> <End>
 " Tabでタブ移動
-nmap <Tab> :tabn<CR>
-nmap <S-Tab> :tabp<CR>
-nmap <C-t> :tabnew<CR>
+nnoremap <Tab> :tabn<CR>
+nnoremap <S-Tab> :tabp<CR>
+nnoremap <C-t> :tabnew<CR>
 " 括弧→補完→改行→インデント
 inoremap {<Enter> {}<Left><CR><ESC><S-o>
 inoremap [<Enter> []<Left><CR><ESC><S-o>
@@ -153,6 +155,7 @@ Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'hrsh7th/vim-vsnip'
 Plug 'hrsh7th/vim-vsnip-integ'
+Plug 'svermeulen/vim-easyclip'
 call plug#end()
 
 " インストール判定関数
@@ -186,8 +189,10 @@ endif
 "----------------------------------------
 " colorscheme
 "----------------------------------------
-if s:is_plugged("vim-windflower") && has('unix')
-    colorscheme windflower
+if s:is_plugged("vim-hybrid") && has('unix')
+    set background=dark
+    colorscheme hybrid
+    highlight LineNr ctermfg=lightgreen
 endif
 
 "----------------------------------------
@@ -205,4 +210,39 @@ endif
 if s:is_plugged("asyncomplete.vim")
     " To auto close preview window when completion is done.
     autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+endif
+
+"----------------------------------------
+" vim-easyclip
+"----------------------------------------
+if s:is_plugged("vim-easyclip")
+    let g:EasyClipShareYanks = 1
+    " easycilpからコピーした一覧を取得
+    function! s:yank_list()
+      redir => ys
+      silent Yanks
+      redir END
+      return split(ys, '\n')[1:]
+    endfunction
+
+    " 引数からPasteコマンドで貼り付け
+    function! s:yank_handler(reg)
+      if empty(a:reg)
+        echo "aborted register paste"
+      else
+        let token = split(a:reg, ' ')
+        execute 'Paste' . token[0]
+      endif
+    endfunction
+
+    " fzfを使って一覧を呼び出して貼り付け
+    command! FZFYank call fzf#run({
+    \ 'source': <sid>yank_list(),
+    \ 'sink': function('<sid>yank_handler'),
+    \ 'options': '-m --prompt="FZFYank> "',
+    \ 'down': '40%'
+    \ })
+
+    nnoremap <C-Y><C-Y> :<C-U>FZFYank<CR>
+    inoremap <C-Y><C-Y> <C-O>:<C-U>FZFYank<CR>
 endif
