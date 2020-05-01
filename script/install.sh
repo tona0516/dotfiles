@@ -43,13 +43,6 @@ do
     [ $should_create_link = true ] && ln -snfv "$DOTPATH/$f" "$HOME/$f"
 done
 
-# create synbolic links of directory in .config
-mkdir -p $HOME/.config
-for d in .config/*
-do
-    ln -snfv "$DOTPATH/$d" "$HOME/.config"
-done
-
 # install vim plugins
 vim +PlugInstall +qall
 
