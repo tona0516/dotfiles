@@ -1,4 +1,4 @@
-if is_mac; then alias ls='ls -G -F'; else alias ls='ls --color=auto -F'; fi
+is_mac && alias ls='ls -G -F' || alias ls='ls --color=auto -F'
 alias ll='ls -l'
 alias lla='ls -la'
 alias sl='ls'
