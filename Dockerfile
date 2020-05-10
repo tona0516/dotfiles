@@ -13,7 +13,6 @@ RUN echo "now building..."
 
 # ユーザーを作成
 RUN useradd -g wheel tonango
-RUN echo 'tonango:meem0516' | chpasswd
 RUN echo "tonango ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 # 必要なパッケージをインストール
