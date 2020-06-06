@@ -146,7 +146,6 @@ Plug 'tpope/vim-commentary'
 Plug 'airblade/vim-gitgutter'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'cohama/lexima.vim'
-Plug 'svermeulen/vim-easyclip'
 call plug#end()
 
 " インストール判定関数
@@ -186,56 +185,5 @@ if s:is_plugged("vim-hybrid") && has('unix')
     highlight LineNr ctermfg=lightgreen
 endif
 
-"----------------------------------------
-" vim-lsp-settings
-"----------------------------------------
-if s:is_plugged("vim-lsp-settings")
-    let g:lsp_diagnostics_enabled = 1
-    let g:lsp_signs_enabled = 1
-    let g:lsp_diagnostics_echo_cursor = 1
-endif
-
-"----------------------------------------
-" asyncomplete.vim
-"----------------------------------------
-if s:is_plugged("asyncomplete.vim")
-    " To auto close preview window when completion is done.
-    autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
-endif
-
-"----------------------------------------
-" vim-easyclip
-"----------------------------------------
-if s:is_plugged("vim-easyclip")
-    let g:EasyClipShareYanks = 1
-    " easycilpからコピーした一覧を取得
-    function! s:yank_list()
-      redir => ys
-      silent Yanks
-      redir END
-      return split(ys, '\n')[1:]
-    endfunction
-
-    " 引数からPasteコマンドで貼り付け
-    function! s:yank_handler(reg)
-      if empty(a:reg)
-        echo "aborted register paste"
-      else
-        let token = split(a:reg, ' ')
-        execute 'Paste' . token[0]
-      endif
-    endfunction
-
-    " fzfを使って一覧を呼び出して貼り付け
-    command! FZFYank call fzf#run({
-    \ 'source': <sid>yank_list(),
-    \ 'sink': function('<sid>yank_handler'),
-    \ 'options': '-m --prompt="FZFYank> "',
-    \ 'down': '40%'
-    \ })
-
-    nnoremap <C-Y><C-Y> :<C-U>FZFYank<CR>
-    inoremap <C-Y><C-Y> <C-O>:<C-U>FZFYank<CR>
-endif
-
 nmap <silent> <C-b> <Plug>(coc-definition)
+
