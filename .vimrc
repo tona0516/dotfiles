@@ -85,10 +85,6 @@ vnoremap <C-e> <End>
 nnoremap <Tab> :tabn<CR>
 nnoremap <S-Tab> :tabp<CR>
 nnoremap <C-t> :tabnew<CR>
-" 括弧→補完→改行→インデント
-inoremap {<Enter> {}<Left><CR><ESC><S-o>
-inoremap [<Enter> []<Left><CR><ESC><S-o>
-inoremap (<Enter> ()<Left><CR><ESC><S-o>
 
 " 不可視文字を表示する
 set list
@@ -148,13 +144,8 @@ Plug 'mushanyoung/vim-windflower'
 Plug 'roxma/vim-paste-easy'
 Plug 'tpope/vim-commentary'
 Plug 'airblade/vim-gitgutter'
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/vim-lsp'
-Plug 'mattn/vim-lsp-settings'
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
-Plug 'hrsh7th/vim-vsnip'
-Plug 'hrsh7th/vim-vsnip-integ'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'cohama/lexima.vim'
 Plug 'svermeulen/vim-easyclip'
 call plug#end()
 
@@ -246,3 +237,5 @@ if s:is_plugged("vim-easyclip")
     nnoremap <C-Y><C-Y> :<C-U>FZFYank<CR>
     inoremap <C-Y><C-Y> <C-O>:<C-U>FZFYank<CR>
 endif
+
+nmap <silent> <C-b> <Plug>(coc-definition)

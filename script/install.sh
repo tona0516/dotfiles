@@ -44,6 +44,6 @@ do
 done
 
 # install vim plugins
-vim +PlugInstall +qall
+vim +PlugInstall +"CocInstall coc-phpls -sync" +qa
 
 exec zsh -l
