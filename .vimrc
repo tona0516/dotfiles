@@ -143,9 +143,10 @@ Plug 'mushanyoung/vim-windflower'
 Plug 'roxma/vim-paste-easy'
 Plug 'tpope/vim-commentary'
 Plug 'airblade/vim-gitgutter'
-Plug 'cohama/lexima.vim'
+
 if v:version > 709
     Plug 'neoclide/coc.nvim'
+    Plug 'cohama/lexima.vim'
 endif
 call plug#end()
 
@@ -186,5 +187,10 @@ if s:is_plugged("vim-hybrid") && has('unix')
     highlight LineNr ctermfg=lightgreen
 endif
 
-nmap <silent> <C-b> <Plug>(coc-definition)
+"----------------------------------------
+" coc.nvim
+"----------------------------------------
+if s:is_plugged("coc.nvim")
+    nmap <silent> <C-b> <Plug>(coc-definition)
+endif
 
