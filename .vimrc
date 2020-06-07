@@ -143,7 +143,7 @@ Plug 'mushanyoung/vim-windflower'
 Plug 'roxma/vim-paste-easy'
 Plug 'tpope/vim-commentary'
 Plug 'airblade/vim-gitgutter'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim'
 Plug 'cohama/lexima.vim'
 call plug#end()
 
