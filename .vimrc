@@ -78,13 +78,16 @@ inoremap <C-a> <Home>
 inoremap <C-e> <End>
 " emacsのようにctrl+aで先頭、ctrl+eで末尾に移動する
 nnoremap <C-a> <Home>
-nnoremap <C-e> <End>
+nnoremap <C-e> <End>l
 vnoremap <C-a> <Home>
 vnoremap <C-e> <End>
 " Tabでタブ移動
 nnoremap <Tab> :tabn<CR>
 nnoremap <S-Tab> :tabp<CR>
 nnoremap <C-t> :tabnew<CR>
+" ノーマルモードで改行、バックスペース
+nnoremap <CR> i<Return><Esc>
+nnoremap <BS> i<BS><Esc>
 
 " 不可視文字を表示する
 set list
@@ -116,18 +119,26 @@ endif
 " 新しいウィンドウを右側で開く
 set splitright
 
-" ctrl+lで行情報+不可視文字の表示/非表示
+" space+lで行情報+不可視文字の表示/非表示
 function! s:toggle_line_info()
-    set invnumber
-    set invlist
-    GitGutterToggle
+  set invnumber
+  set invlist
+  GitGutterToggle
 endfunction
 command! LineInfoToggle call s:toggle_line_info()
-nnoremap <C-l> :LineInfoToggle<CR>
+nnoremap <Space>l :LineInfoToggle<CR>
+
 "----------------------------------------
 " vim-plug
 "----------------------------------------
 call plug#begin('~/.vim/plugged')
+" colorschme
+Plug 'w0ng/vim-hybrid'
+Plug 'tomasr/molokai'
+Plug 'dylnmc/novum.vim'
+Plug 'mushanyoung/vim-windflower'
+
+" others
 Plug 'itchyny/lightline.vim'
 Plug 'Townk/vim-autoclose'
 Plug 'scrooloose/nerdtree'
@@ -136,61 +147,59 @@ Plug 'xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
-Plug 'w0ng/vim-hybrid'
-Plug 'tomasr/molokai'
-Plug 'dylnmc/novum.vim'
-Plug 'mushanyoung/vim-windflower'
 Plug 'roxma/vim-paste-easy'
 Plug 'tpope/vim-commentary'
 Plug 'airblade/vim-gitgutter'
+Plug 'terryma/vim-multiple-cursors'
 
 if v:version > 709
-    Plug 'neoclide/coc.nvim'
-    Plug 'cohama/lexima.vim'
+  Plug 'neoclide/coc.nvim'
+  Plug 'cohama/lexima.vim'
 endif
 call plug#end()
 
 " インストール判定関数
 function s:is_plugged(name)
-    if exists('g:plugs') && has_key(g:plugs, a:name) && isdirectory(g:plugs[a:name].dir)
-        return 1
-    else
-        return 0
-    endif
+  if exists('g:plugs') && has_key(g:plugs, a:name) && isdirectory(g:plugs[a:name].dir)
+    return 1
+  else
+    return 0
+  endif
 endfunction
+
+"----------------------------------------
+" colorscheme
+"----------------------------------------
+if s:is_plugged("vim-hybrid") && has('unix')
+  set background=dark
+  colorscheme hybrid
+  highlight LineNr ctermfg=lightgreen
+endif
+
 "----------------------------------------
 " NERDTree
 "----------------------------------------
 if s:is_plugged("nerdtree")
-    map <C-n> :NERDTreeTabsToggle<CR>
-    let NERDTreeShowHidden = 1
-    let g:NERDTreeWinSize = 48
+  nmap <Space>n :NERDTreeTabsToggle<CR>
+  let NERDTreeShowHidden = 1
+  let g:NERDTreeWinSize = 48
 endif
 
 "----------------------------------------
 " fzf
 "----------------------------------------
 if s:is_plugged("fzf.vim")
-    map <C-o> :GFiles<CR>
-    map gs :GFiles?<CR>
-    map <C-f> :Files<CR>
-    map <C-r> :History<CR>
-    map r :redo<CR>
-endif
-
-"----------------------------------------
-" colorscheme
-"----------------------------------------
-if s:is_plugged("vim-hybrid") && has('unix')
-    set background=dark
-    colorscheme hybrid
-    highlight LineNr ctermfg=lightgreen
+  nmap <Space>o :GFiles<CR>
+  nmap gs :GFiles?<CR>
+  nmap <Space>f :Files<CR>
+  nmap <Space>r :History<CR>
+  nmap r :redo<CR>
 endif
 
 "----------------------------------------
 " coc.nvim
 "----------------------------------------
 if s:is_plugged("coc.nvim")
-    nmap <silent> <C-b> <Plug>(coc-definition)
+  nmap <silent> <Space>b <Plug>(coc-definition)
 endif
 
