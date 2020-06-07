@@ -143,8 +143,10 @@ Plug 'mushanyoung/vim-windflower'
 Plug 'roxma/vim-paste-easy'
 Plug 'tpope/vim-commentary'
 Plug 'airblade/vim-gitgutter'
-Plug 'neoclide/coc.nvim'
 Plug 'cohama/lexima.vim'
+if v:version > 709
+    Plug 'neoclide/coc.nvim'
+endif
 call plug#end()
 
 " インストール判定関数
