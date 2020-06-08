@@ -88,6 +88,9 @@ nnoremap <C-t> :tabnew<CR>
 " ノーマルモードで改行、バックスペース
 nnoremap <CR> i<Return><Esc>
 nnoremap <BS> i<BS><Esc>
+" 挿入モードでも半ページスクロール
+inoremap <C-u> <ESC><C-u>i
+inoremap <C-d> <ESC><C-d>i
 
 " 不可視文字を表示する
 set list
