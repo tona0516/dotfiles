@@ -156,7 +156,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'terryma/vim-multiple-cursors'
 
 if v:version > 709
-  Plug 'neoclide/coc.nvim'
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'cohama/lexima.vim'
 endif
 call plug#end()
@@ -205,4 +205,3 @@ endif
 if s:is_plugged("coc.nvim")
   nmap <silent> <Space>b <Plug>(coc-definition)
 endif
-
