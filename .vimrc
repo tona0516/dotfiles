@@ -157,7 +157,6 @@ Plug 'terryma/vim-multiple-cursors'
 
 if v:version > 709
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
-  Plug 'cohama/lexima.vim'
 endif
 call plug#end()
 
@@ -204,4 +203,10 @@ endif
 "----------------------------------------
 if s:is_plugged("coc.nvim")
   nmap <silent> <Space>b <Plug>(coc-definition)
+  " 常に補完ウィンドウを表示する
+  set completeopt=menuone,noinsert
+  " 補完をEnterで確定したときに改行しないようにする
+  inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+  " coc-pairsで改行時にインデントを入れる
+  inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 endif
