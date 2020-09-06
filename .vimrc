@@ -185,6 +185,7 @@ if s:is_plugged("nerdtree")
   nmap <Space>n :NERDTreeTabsToggle<CR>
   let NERDTreeShowHidden = 1
   let g:NERDTreeWinSize = 48
+  let NERDTreeMapOpenInTab='<ENTER>'
 endif
 
 "----------------------------------------
