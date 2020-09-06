@@ -137,9 +137,9 @@ nnoremap <Space>l :LineInfoToggle<CR>
 call plug#begin('~/.vim/plugged')
 " colorschme
 Plug 'w0ng/vim-hybrid'
-Plug 'tomasr/molokai'
-Plug 'dylnmc/novum.vim'
-Plug 'mushanyoung/vim-windflower'
+" Plug 'tomasr/molokai'
+" Plug 'dylnmc/novum.vim'
+" Plug 'mushanyoung/vim-windflower'
 
 " others
 Plug 'itchyny/lightline.vim'
