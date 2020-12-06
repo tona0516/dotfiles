@@ -47,4 +47,4 @@ zshaddhistory() {
 }
 
 # PATHの追加
-export PATH=$HOME/local/bin:$PATH
+export PATH=$HOME/local/bin:/opt/homebrew/bin:$PATH
