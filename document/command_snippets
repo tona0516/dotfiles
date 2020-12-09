@@ -3,3 +3,4 @@ carthage update --platform iOS
 sudo-vim /etc/dnsmasq.host
 sudo /etc/init.d/dnsmasq restart
 emulator -avd `emulator -list-avds | fzf` -dns-server <IP>
+/opt/homebrew/bin/brew
