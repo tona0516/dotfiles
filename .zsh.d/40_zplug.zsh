@@ -12,7 +12,8 @@ if is_mac; then
 else
     zplug "junegunn/fzf-bin", as:command, from:gh-r, rename-to:fzf
 fi
-zplug "b4b4r07/enhancd", use:init.sh
+# note: to avoid "__enhancd::sources::default:6: bad pattern:~"
+zplug "b4b4r07/enhancd", use:init.sh, at:f0f894029d12eecdc36c212fa3ad14f55468d1b7
 if zplug check "b4b4r07/enhancd"; then
     ENHANCD_DISABLE_HOME=0
     ENHANCD_DISABLE_DOT=1
