@@ -8,9 +8,9 @@ ZPLUG_PROTOCOL=HTTPS
 
 # install plugins
 if is_mac; then
-    zplug "junegunn/fzf-bin", as:command, from:gh-r, rename-to:fzf, use:"*darwin*amd64*"
+    zplug "junegunn/fzf", as:command, from:gh-r, rename-to:fzf, use:"*darwin*amd64*"
 else
-    zplug "junegunn/fzf-bin", as:command, from:gh-r, rename-to:fzf
+    zplug "junegunn/fzf", as:command, from:gh-r, rename-to:fzf
 fi
 # note: to avoid "__enhancd::sources::default:6: bad pattern:~"
 zplug "b4b4r07/enhancd", use:init.sh, at:f0f894029d12eecdc36c212fa3ad14f55468d1b7
