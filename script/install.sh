@@ -44,6 +44,6 @@ do
 done
 
 # install vim plugins
-vim +PlugInstall +"CocInstall coc-phpls coc-pairs -sync" +qa
+vim +PlugInstall +"CocInstall coc-phpls coc-pairs" +qa
 
 exec zsh -l

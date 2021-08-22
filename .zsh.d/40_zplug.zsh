@@ -38,6 +38,7 @@ else
 fi
 zplug "mollifier/cd-gitroot"
 zplug 'wfxr/forgit'
+zplug "lib/clipboard", from:oh-my-zsh
 
 # install and load
 if ! zplug check --verbose; then
