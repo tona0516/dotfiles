@@ -17,7 +17,7 @@ install_brew_if_needed() {
 
     if [ `uname -m` = "x86_64" ] && !(type brew > /dev/null 2>&1); then
         echo "[INFO] install brew as x86_64"
-        zsh -c "curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh"
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     fi
 
     echo "[INFO] brew command path - "`which brew`
@@ -40,10 +40,23 @@ packages=(
     jq
     shiftit
     iterm2
-    discord
     visual-studio-code
     android-studio
-    anydesk
+    alfred
+    google-japanese-ime
+    gas-mask
+    zoom
+    rbenv
+    ruby-build
+    automake
+    stern
+    swiftlint
+    kubectx
+    kubectl
+    jazzy
+    graphviz
+    fastlane
+    cloudfoundry/tap/cf-cli
 )
 for package in ${packages[@]}
 do
