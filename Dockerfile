@@ -32,7 +32,11 @@ RUN yum install -y nodejs
 
 USER tonango
 WORKDIR /home/tonango
-RUN git clone https://github.com/tona0516/dotfiles.git
+
+# dotfilesディレクトリを配置
+COPY --chown=tonango:tonango . /home/tonango/dotfiles
+
+# RUN git clone https://github.com/tona0516/dotfiles.git
 
 # CMD: docker runするときに実行される
 CMD echo "now running..."
