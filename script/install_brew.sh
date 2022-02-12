@@ -44,6 +44,8 @@ packages=(
     visual-studio-code
     android-studio
     anydesk
+    cocoapods
+    carthage
 )
 for package in ${packages[@]}
 do
