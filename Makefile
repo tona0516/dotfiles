@@ -9,3 +9,6 @@ install_brew:
 
 uninstall:
 	./script/uninstall.sh
+
+run_docker:
+	./script/run_docker.sh
