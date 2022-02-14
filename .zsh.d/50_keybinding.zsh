@@ -1,7 +1,7 @@
 # emacsキーバインド
 bindkey -e
 
-if zplug check "junegunn/fzf-bin"; then
+if zplug check "junegunn/fzf"; then
     zle -N select-snippets
     bindkey '^s' select-snippets
 fi

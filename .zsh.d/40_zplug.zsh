@@ -12,8 +12,10 @@ if is_mac; then
 else
     zplug "junegunn/fzf", as:command, from:gh-r, rename-to:fzf
 fi
+
 # note: to avoid "__enhancd::sources::default:6: bad pattern:~"
 zplug "b4b4r07/enhancd", use:init.sh, at:f0f894029d12eecdc36c212fa3ad14f55468d1b7
+# zplug "b4b4r07/enhancd", use:init.sh
 if zplug check "b4b4r07/enhancd"; then
     ENHANCD_DISABLE_HOME=0
     ENHANCD_DISABLE_DOT=1
@@ -34,7 +36,9 @@ if [ "$INT_ZSH_VERSION" -ge 50300 ]; then
     zplug "romkatv/gitstatus", use:'gitstatus.prompt.zsh'
     # zplug "romkatv/powerlevel10k", as:theme, depth:1, hook-load:"source ~/.p10k.zsh"
 else
-    zplug "themes/ys", from:oh-my-zsh
+    zplug "themes/steeef", from:oh-my-zsh
+    # note: to avoid "zsh: command not found: svn_prompt_info"
+    # zplug "themes/ys", from:oh-my-zsh, at:f42aa49cfdfc56b784744d3e421f297ab03efbdc
 fi
 zplug "mollifier/cd-gitroot"
 zplug 'wfxr/forgit'

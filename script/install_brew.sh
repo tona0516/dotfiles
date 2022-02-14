@@ -57,6 +57,9 @@ packages=(
     graphviz
     fastlane
     cloudfoundry/tap/cf-cli
+    anydesk
+    cocoapods
+    carthage
 )
 for package in ${packages[@]}
 do

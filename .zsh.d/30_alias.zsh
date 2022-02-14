@@ -4,15 +4,10 @@ alias lla='ls -la'
 alias sl='ls'
 alias h='hostname'
 alias git='noglob git'
-alias g='git'
-alias ga='git add'
 alias gb='git branch'
-alias gc='git commit'
-alias gcm='git commit -m'
 alias gs='git status'
 alias gl="git log --pretty='format:%C(yellow)%h %C(cyan)%an %C(green)%cd %C(reset)%s %C(red)%d' --date=short"
 alias gll='glo' # forgit plugin alias
-alias gr='git reset'
 alias gd='git diff'
 alias gdd='git diff --cached'
 alias groot='cd-gitroot'
@@ -21,11 +16,11 @@ alias rezsh='source ~/.zshrc'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias sudo-vim='sudo -E vim'
-alias gco=anyframe-widget-checkout-git-branch
 alias psa="ps aux"
 alias psg="ps aux | grep "
 alias df='df -h'
 alias dotfiles="cd ~/dotfiles"
+alias d="docker"
 alias k="kubectl"
 
 # C で標準出力をクリップボードにコピーする
