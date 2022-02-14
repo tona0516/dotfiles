@@ -60,6 +60,8 @@ packages=(
     anydesk
     cocoapods
     carthage
+    qrencode
+    bash
 )
 for package in ${packages[@]}
 do
