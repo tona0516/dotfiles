@@ -58,6 +58,7 @@ packages=(
     cocoapods
     carthage
     qrencode
+    zsh
     bash
 )
 for package in ${packages[@]}
