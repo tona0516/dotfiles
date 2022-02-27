@@ -22,6 +22,7 @@ alias df='df -h'
 alias dotfiles="cd ~/dotfiles"
 alias d="docker"
 alias k="kubectl"
+alias colordiff="colordiff -u"
 
 # C で標準出力をクリップボードにコピーする
 if which pbcopy >/dev/null 2>&1 ; then

@@ -60,6 +60,7 @@ packages=(
     qrencode
     zsh
     bash
+    colordiff
 )
 for package in ${packages[@]}
 do
