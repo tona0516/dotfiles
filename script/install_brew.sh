@@ -62,6 +62,7 @@ packages=(
     carthage
     qrencode
     bash
+    postman
 )
 for package in ${packages[@]}
 do
