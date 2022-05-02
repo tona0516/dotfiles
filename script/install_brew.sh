@@ -42,7 +42,6 @@ packages=(
     iterm2
     visual-studio-code
     android-studio
-    alfred
     google-japanese-ime
     gas-mask
     zoom
@@ -53,16 +52,16 @@ packages=(
     swiftlint
     kubectx
     kubectl
-    jazzy
     graphviz
     fastlane
-    cloudfoundry/tap/cf-cli
     anydesk
     cocoapods
     carthage
     qrencode
+    zsh
     bash
     postman
+    colordiff
 )
 for package in ${packages[@]}
 do
